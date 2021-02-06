@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="with_0">0dp</dimen>
+    <dimen name="height_0">0dp</dimen>
+    <dimen name="tv_size_23">23sp</dimen>
+</resources>
