@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,14 +20,16 @@ import com.example.quranapplication.index_surahs.SurahFragment;
 import com.example.quranapplication.index_surahs.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import static androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT;
 
 
 public class IndexsFragment extends Fragment {
+    private String tabTitles [] = new String[] {"Surah", "Juz"};
 
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private ViewPager2 viewPager;
     private ViewPagerAdapter adapter;
 
     private static final String ARG_NAME = "arg_name";
@@ -65,12 +68,15 @@ public class IndexsFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
         tabLayout = v.findViewById(R.id.tablayout_id);
-       viewPager = v.findViewById(R.id.viewpager_id);
+        viewPager = v.findViewById(R.id.viewpager_id);
 
-        //-------------------------------------------------------//
-        tabLayout.setupWithViewPager(viewPager);
-        adapter = new ViewPagerAdapter(getParentFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        adapter = new ViewPagerAdapter(getActivity(), tabTitles.length);
         viewPager.setAdapter(adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(tabTitles[position])
+        ).attach();
+
         return v;
 
     }

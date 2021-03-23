@@ -38,15 +38,8 @@ public class SurahFragment extends Fragment {
 
     //------------------------------------//
 
-
-    public static SurahFragment newInstance(int position,String name) {
-
-        Bundle args = new Bundle();
-        args.putInt(ARGUMENT_POSITION, position);
-        args.putString(ARGUMENT_NAME, name);
-        SurahFragment fragment = new SurahFragment();
-        fragment.setArguments(args);
-        return fragment;
+    public static SurahFragment newInstance() {
+        return new SurahFragment();
     }
     //------------------------------------//
 
