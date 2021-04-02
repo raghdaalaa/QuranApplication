@@ -15,8 +15,7 @@
         android:label="fragment_indexs"
         tools:layout="@layout/fragment_indexs" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.quranapplication.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/settingsFragment2"
+        android:name="com.example.quranapplication.SettingsFragment2"
+        android:label="SettingsFragment2" />
 </navigation>
