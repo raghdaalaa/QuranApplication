@@ -1,0 +1,346 @@
+Index: app/src/main/res/layout/fragment_surah.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n<!--    tools:context=\"index_surah.S\"-->\r\n\r\n\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:id=\"@+id/sur_rv_id\"\r\n        android:background=\"@color/colorAccent\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"/>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_surah.xml	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ app/src/main/res/layout/fragment_surah.xml	(date 1623923508325)
+@@ -9,7 +9,6 @@
+ 
+     <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/sur_rv_id"
+-        android:background="@color/colorAccent"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"/>
+ 
+Index: app/src/main/res/layout/juz_design.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/juz_design.xml	(date 1623923508240)
++++ app/src/main/res/layout/juz_design.xml	(date 1623923508240)
+@@ -0,0 +1,36 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content">
++    <ImageView android:id="@+id/iconn"
++        android:src="@drawable/ic_star"
++        android:layout_width="50dp"
++        android:layout_height="50dp"
++        tools:ignore="MissingConstraints" />
++
++    <TextView
++        android:id="@+id/juz_num"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="24dp"
++        android:text="juz number "
++        android:textSize="20sp"
++        android:textStyle="bold"
++        app:layout_constraintStart_toEndOf="@+id/iconn"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/juz_desc"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="24dp"
++        android:layout_marginTop="8dp"
++        android:text="juz description"
++        android:textSize="15sp"
++        app:layout_constraintStart_toEndOf="@+id/iconn"
++        app:layout_constraintTop_toBottomOf="@+id/juz_num" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/item_design.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    >\r\n\r\n\r\n    <ImageView\r\n        android:id=\"@+id/iv_id\"\r\n        android:layout_width=\"50dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:src=\"@drawable/ic_star\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toStartOf=\"@id/tv1_id\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        />\r\n\r\n\r\n    <TextView\r\n        android:id=\"@+id/tv1_id\"\r\n        android:layout_width=\"290dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Surah name\"\r\n        android:textSize=\"20dp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintStart_toEndOf=\"@id/iv_id\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"  />\r\n\r\n    <TextView\r\n        android:id=\"@+id/tv2_id\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Surah verse number\"\r\n        android:textColor=\"@color/starcolor\"\r\n        android:textSize=\"15dp\"\r\n        app:layout_constraintStart_toEndOf=\"@id/iv_id\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/tv1_id\"\r\n        />\r\n\r\n\r\n    <ImageView\r\n        android:id=\"@+id/iv2_id\"\r\n        android:layout_width=\"43dp\"\r\n        android:layout_height=\"43dp\"\r\n        android:src=\"@drawable/ic_speaker_filled_audio_tool\"\r\n        app:layout_constraintStart_toEndOf=\"@id/tv1_id\"\r\n        app:layout_constraintTop_toTopOf=\"@id/iv_id\"\r\n        app:layout_constraintBottom_toBottomOf=\"@id/iv_id\"\r\n\r\n        />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n\r\n\r\n    <!--    <ImageView-->\r\n    <!--        android:id=\"@+id/iv_id\"-->\r\n    <!--        android:layout_width=\"50dp\"-->\r\n    <!--        android:layout_height=\"50dp\"-->\r\n    <!--        android:src=\"@drawable/ic_star\"/>-->\r\n\r\n    <!--    <LinearLayout-->\r\n    <!--        android:layout_width=\"wrap_content\"-->\r\n    <!--        android:layout_height=\"wrap_content\"-->\r\n    <!--        android:orientation=\"vertical\"-->\r\n    <!--        android:layout_marginLeft=\"16dp\">-->\r\n\r\n    <!--        <TextView-->\r\n    <!--            android:id=\"@+id/tv1_id\"-->\r\n    <!--            android:layout_width=\"wrap_content\"-->\r\n    <!--            android:layout_height=\"wrap_content\"-->\r\n    <!--            android:text=\"Surah name\"-->\r\n    <!--            android:textSize=\"20dp\"-->\r\n    <!--            android:textStyle=\"bold\"/>-->\r\n    <!--        <TextView-->\r\n    <!--            android:id=\"@+id/tv2_id\"-->\r\n    <!--            android:layout_width=\"wrap_content\"-->\r\n    <!--            android:layout_height=\"wrap_content\"-->\r\n    <!--            android:textColor=\"@color/starcolor\"-->\r\n    <!--            android:text=\"Surah verse number\"-->\r\n    <!--            android:textSize=\"15dp\" />-->\r\n\r\n    <!--    </LinearLayout>-->\r\n\r\n    <!--    <LinearLayout-->\r\n    <!--        android:gravity=\"end\"-->\r\n    <!--        android:layout_width=\"match_parent\"-->\r\n    <!--        android:layout_height=\"match_parent\">-->\r\n    <!--        -->\r\n\r\n    <!--        <ImageView-->\r\n    <!--            android:id=\"@+id/iv2_id\"-->\r\n    <!--            android:layout_gravity=\"center_vertical\"-->\r\n    <!--            android:layout_width=\"43dp\"-->\r\n    <!--            android:layout_height=\"43dp\"-->\r\n    <!--            android:layout_margin=\"15dp\"-->\r\n    <!--            android:layout_weight=\"1\"-->\r\n    <!--            android:src=\"@drawable/ic_speaker_filled_audio_tool\"/>-->\r\n\r\n\r\n    <!--    </LinearLayout>-->\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/item_design.xml	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ app/src/main/res/layout/item_design.xml	(date 1623923508250)
+@@ -33,7 +33,7 @@
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Surah verse number"
+-        android:textColor="@color/starcolor"
++        android:textColor="@color/color_B6B8A1"
+         android:textSize="15dp"
+         app:layout_constraintStart_toEndOf="@id/iv_id"
+         app:layout_constraintTop_toBottomOf="@id/tv1_id"
+Index: app/src/main/java/com/example/quranapplication/index_surahs/ViewPagerAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.quranapplication.index_surahs;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.fragment.app.FragmentActivity;\r\n\r\nimport androidx.viewpager2.adapter.FragmentStateAdapter;\r\n\r\npublic class ViewPagerAdapter extends FragmentStateAdapter {\r\n    private int count;\r\n    public ViewPagerAdapter(FragmentActivity fragmentActivity, int count) {\r\n        super(fragmentActivity);\r\n        this.count = count;\r\n    }\r\n\r\n\r\n//----------------------------------------------------------------------//\r\n//----------------------------------------------------------------------//\r\n    @NonNull\r\n    @Override\r\n    public Fragment createFragment(int position) {\r\n        switch(position){\r\n            case 0:\r\n                return SurahFragment.newInstance();\r\n            case 1:\r\n                return new JuzFragment();\r\n        }\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return count;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/quranapplication/index_surahs/ViewPagerAdapter.java	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ app/src/main/java/com/example/quranapplication/index_surahs/ViewPagerAdapter.java	(date 1623923508147)
+@@ -14,7 +14,7 @@
+     }
+ 
+ 
+-//----------------------------------------------------------------------//
++    //----------------------------------------------------------------------//
+ //----------------------------------------------------------------------//
+     @NonNull
+     @Override
+Index: app/src/main/java/com/example/quranapplication/index_surahs/RecyclerViewAdapter_juz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/quranapplication/index_surahs/RecyclerViewAdapter_juz.java	(date 1623923508207)
++++ app/src/main/java/com/example/quranapplication/index_surahs/RecyclerViewAdapter_juz.java	(date 1623923508207)
+@@ -0,0 +1,55 @@
++package com.example.quranapplication.index_surahs;
++
++import android.content.Context;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.ImageView;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
++
++import com.example.quranapplication.R;
++
++import java.util.List;
++
++public class RecyclerViewAdapter_juz extends RecyclerView.Adapter<RecyclerViewAdapter_juz.myViewHolder>{
++List<juz>juz ;
++Context context ;
++
++    public RecyclerViewAdapter_juz(List<com.example.quranapplication.index_surahs.juz> juz, Context context) {
++        this.juz = juz;
++        this.context = context;
++    }
++
++    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++     View view= LayoutInflater.from(context).inflate(R.layout.juz_design,parent,false);
++     return new myViewHolder(view);
++    }
++
++    @Override
++    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
++        juz j=juz.get(position);
++        holder.juz_num.setText(j.getJuz_num());
++        holder.juz_des.setText(j.getJuz_description());
++        holder.icon.setImageResource(j.getIcon()); }
++
++    @Override
++    public int getItemCount() {
++        return juz.size();
++    }
++
++    static class myViewHolder extends RecyclerView.ViewHolder {
++    private TextView juz_num ;
++    private TextView juz_des;
++    private ImageView icon ;
++    public myViewHolder(@NonNull View itemView) {
++        super(itemView);
++        juz_num=itemView.findViewById(R.id.juz_num);
++        juz_des=itemView.findViewById(R.id.juz_desc);
++        icon=itemView.findViewById(R.id.iconn);
++
++    }
++}
++}
+Index: app/src/main/java/com/example/quranapplication/index_surahs/JuzFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.quranapplication.index_surahs;\r\n\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.example.quranapplication.R;\r\n\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n */\r\npublic class JuzFragment extends Fragment {\r\n\r\n\r\n    public JuzFragment() {\r\n        // Required empty public constructor\r\n    }\r\n\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        View v=inflater.inflate(R.layout.fragment_juz,container,false);\r\n\r\n        return v;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/quranapplication/index_surahs/JuzFragment.java	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ app/src/main/java/com/example/quranapplication/index_surahs/JuzFragment.java	(date 1623923508220)
+@@ -6,29 +6,77 @@
+ import android.view.View;
+ import android.view.ViewGroup;
+ 
++import androidx.annotation.Nullable;
+ import androidx.fragment.app.Fragment;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.example.quranapplication.R;
+ 
++import java.util.ArrayList;
++
+ 
+ /**
+  * A simple {@link Fragment} subclass.
+  */
+ public class JuzFragment extends Fragment {
+-
++   private RecyclerView recyclerView ;
++   private RecyclerViewAdapter_juz recyclerViewAdapter_juz;
++   private ArrayList<juz>Juz ;
++    private static final String ARGUMENT_POSITION = "argument_position";
++    private static final String ARGUMENT_NAME = "argument_name";
+ 
+     public JuzFragment() {
+         // Required empty public constructor
+     }
+-
+-
++    public static JuzFragment newInstance() {return new JuzFragment();}
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+-        // Inflate the layout for this fragment
++        Juz=new ArrayList<>();
++        Juz.add(new juz("JUZ 1","SART At:AL-FAATIHA VERSE 1",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 2","START AT:AL-BAQARA VERSE 142 ",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 3","START AT :AL-BAQARA VERSE 253",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 4"," ",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 5","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 6","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 7","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 8","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 9","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 10","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 11","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 12","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 13","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 14","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 15","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 16","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 17","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 18","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 19","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 20","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 21","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 22","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 23","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 24","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 25","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 26","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 27","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 28","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 29","",R.drawable.ic_star));
++        Juz.add(new juz("JUZ 30","",R.drawable.ic_star));
++
++        recyclerViewAdapter_juz=new RecyclerViewAdapter_juz(Juz,getContext());
+         View v=inflater.inflate(R.layout.fragment_juz,container,false);
+-
++        recyclerView=v.findViewById(R.id.juz_rv_id);
++        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
++        recyclerView.setLayoutManager(layoutManager);
++        recyclerView.setAdapter(recyclerViewAdapter_juz);
++        recyclerView.setHasFixedSize(true);
+         return v;
+     }
+ 
++    @Override
++    public void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++    }
+ }
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <compositeConfiguration>\r\n          <compositeBuild compositeDefinitionSource=\"SCRIPT\" />\r\n        </compositeConfiguration>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"useQualifiedModuleNames\" value=\"true\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ .idea/gradle.xml	(date 1624374971378)
+@@ -4,9 +4,7 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+-        <compositeConfiguration>
+-          <compositeBuild compositeDefinitionSource="SCRIPT" />
+-        </compositeConfiguration>
++        <option name="testRunner" value="PLATFORM" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="modules">
+@@ -16,7 +14,6 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="testRunner" value="PLATFORM" />
+         <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+Index: app/src/main/java/com/example/quranapplication/index_surahs/juz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/quranapplication/index_surahs/juz.java	(date 1623923508197)
++++ app/src/main/java/com/example/quranapplication/index_surahs/juz.java	(date 1623923508197)
+@@ -0,0 +1,40 @@
++package com.example.quranapplication.index_surahs;
++
++public class juz {
++    private String juz_num ;
++    private String juz_description ;
++    private int icon ;
++
++    public juz() {
++    }
++
++    public juz(String juz_num, String juz_description, int icon) {
++        this.juz_num = juz_num;
++        this.juz_description = juz_description;
++        this.icon = icon;
++    }
++
++    public String getJuz_num() {
++        return juz_num;
++    }
++
++    public void setJuz_num(String juz_num) {
++        this.juz_num = juz_num;
++    }
++
++    public String getJuz_description() {
++        return juz_description;
++    }
++
++    public void setJuz_description(String juz_description) {
++        this.juz_description = juz_description;
++    }
++
++    public int getIcon() {
++        return icon;
++    }
++
++    public void setIcon(int icon) {
++        this.icon = icon;
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_7\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 9b72dd5f635f53cacd34f6662e28c5c15d0c8829)
++++ .idea/misc.xml	(date 1624374971105)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">

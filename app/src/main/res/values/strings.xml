@@ -3,4 +3,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="last_read">Go To Last Read</string>
+    <string name="book_mark">Book Mark</string>
+    <string name="share_app">Share App</string>
+    <string name="about_app">About App</string>
+    <string name="language">Language</string>
+    <string name="search">Search</string>
 </resources>
