@@ -24,6 +24,10 @@
         android:name="com.example.quranapplication.ActionBar.LastReadFragment"
         android:label="fragment_last_read"
         tools:layout="@layout/fragment_last_read" />
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.example.quranapplication.SettingsFragment2"
+        android:label="SettingsFragment2" />
 
 
 </navigation>

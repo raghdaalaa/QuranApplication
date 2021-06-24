@@ -1,0 +1,130 @@
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory app:title="Content">
+
+        <ListPreference
+            app:defaultValue="false"
+            app:entries="@array/language_name"
+            app:entryValues="@array/language_values"
+            app:key="choose_language"
+            app:title="Language">
+
+        </ListPreference>
+
+
+        <Preference
+            app:key="search"
+            app:title="Search"></Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Arabic">
+        <ListPreference
+            app:defaultValue="false"
+            app:entries="@array/font_size_name"
+            app:entryValues="@array/font_size_values"
+            app:key="arabic_font_size"
+            app:title="Font Size">
+
+        </ListPreference>
+
+        <ListPreference
+            app:defaultValue="false"
+            app:entries="@array/font_style_name"
+            app:entryValues="@array/font_style_values"
+            app:key="arabic_font_style"
+            app:title="Font Style">
+
+        </ListPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Translation">
+        <ListPreference
+            app:defaultValue="false"
+            app:entries="@array/font_size_name"
+            app:entryValues="@array/font_size_values"
+            app:key="translation_font_size"
+            app:title="Translation Font Size">
+
+        </ListPreference>
+
+        <ListPreference
+            app:defaultValue="false"
+            app:entries="@array/font_style_name"
+            app:entryValues="@array/font_style_values"
+            app:key="translation_font_style"
+            app:title="Translation Font Style"></ListPreference>
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="General">
+
+        <SwitchPreference
+            app:key="keep_Screen_on"
+            app:summary="Screen will stay alive while reciting quran"
+            app:title="Keep Screen On" />
+
+        <SwitchPreference
+            app:key="check_update"
+            app:summary="There will be a notification if an app update is available"
+            app:title="Auto Check Update" />
+
+        <SwitchPreference
+            app:key="full_screen"
+            app:summary="Enable full screen (without notification_bar)"
+            app:title="Full Screen"
+
+            />
+
+        <SwitchPreference
+            app:key="night_mood"
+            app:title="Night Mood" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="other">
+
+        <Preference
+            app:key="share_app"
+            app:title="Share this App"></Preference>
+
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
