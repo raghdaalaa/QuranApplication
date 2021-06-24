@@ -25,7 +25,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/colorText"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu" />

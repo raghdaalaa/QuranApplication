@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_indexs" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.quranapplication.SettingsFragment"
+        android:name="com.example.quranapplication.settingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
@@ -28,6 +28,11 @@
         android:id="@+id/settingsFragment2"
         android:name="com.example.quranapplication.SettingsFragment2"
         android:label="SettingsFragment2" />
+    <fragment
+        android:id="@+id/konoz"
+        android:name="com.example.quranapplication.Konoz"
+        android:label="fragment_konoz"
+        tools:layout="@layout/fragment_konoz" />
 
 
 </navigation>
