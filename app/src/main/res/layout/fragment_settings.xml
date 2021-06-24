@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_B6B8A1"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".settingsFragment">
 
     <TextView
         android:layout_width="wrap_content"

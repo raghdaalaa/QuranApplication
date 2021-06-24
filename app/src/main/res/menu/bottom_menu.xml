@@ -4,13 +4,20 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_quran_rehal"
-        android:title="Quran" />
+        android:title="Quran"
+
+        />
     <item
         android:id="@+id/indexsFragment"
         android:icon="@drawable/ic_quran"
         android:title="Indexs" />
     <item
         android:id="@+id/settingsFragment2"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
         android:title="Settings" />
+
+    <item
+        android:id="@+id/konoz"
+        android:icon="@drawable/ic_koran"
+        android:title="Konoz" />
 </menu>
