@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_quran"
         android:title="Indexs" />
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settingsFragment2"
         android:icon="@drawable/ic_settings"
         android:title="Settings" />
 </menu>

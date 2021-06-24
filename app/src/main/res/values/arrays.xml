@@ -1,0 +1,65 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="language_name">
+        <item>Arabic</item>
+        <item>English</item>
+        <item>Frensh</item>
+        <item>German</item>
+        <item>Spanich</item>
+        <item>Russian</item>
+        <item>Indonesia</item>
+
+    </string-array>
+
+    <string-array name="language_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="font_size_name">
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+    </string-array>
+
+    <string-array name="font_size_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="font_style_name">
+        <item>IndoPak/SubContinent</item>
+        <item>Uthmain</item>
+
+    </string-array>
+
+    <string-array name="font_style_values">
+        <item>1</item>
+        <item>2</item>
+
+    </string-array>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+</resources>
