@@ -32,7 +32,24 @@
         android:id="@+id/konoz"
         android:name="com.example.quranapplication.Konoz"
         android:label="fragment_konoz"
-        tools:layout="@layout/fragment_konoz" />
+        tools:layout="@layout/fragment_konoz" >
+        <action
+            android:id="@+id/action_konoz_to_doaa"
+            app:destination="@id/doaa" />
+        <action
+            android:id="@+id/action_konoz_to_work"
+            app:destination="@id/work" />
+    </fragment>
+    <fragment
+        android:id="@+id/doaa"
+        android:name="com.example.quranapplication.Konoz2.Doaa"
+        android:label="fragment_doaa"
+        tools:layout="@layout/fragment_doaa" />
+    <fragment
+        android:id="@+id/work"
+        android:name="com.example.quranapplication.Konoz2.Work"
+        android:label="fragment_work"
+        tools:layout="@layout/fragment_work" />
 
 
 </navigation>
