@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">QuranApplication</string>
+    <string name="Daily_doaa">Daily doaa</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="The_Duha">The Duha</string>
+    <string name="Duha1">The Duha prayer is the voluntary Islamic prayer between the obligatory Islamic prayers of Fajr and Dhuhr.</string>
+    <string name="Duha2">The Duha prayer is the voluntary Islamic prayer between the obligatory Islamic prayers of Fajr and Dhuhr.</string>
+    <string name="Qiyam_ul_layl">Qiyam-ul-layl</string>
+    <string name="Qiyam1">Qiyam-ul-layl is a voluntary prayer which is offered between the time of Ishaa prayer and the Fajr prayer .</string>
+    <string name="Qiyam2">Invoking Allah at the time of tahajjud was the sunnah of many prophets.Invoking Allah at the time of tahajjud was the sunnah of many prophets.</string>
+     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="last_read">Go To Last Read</string>
     <string name="book_mark">Book Mark</string>
     <string name="share_app">Share App</string>
@@ -12,7 +19,7 @@
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
-
+    <string name="Daily_sonan">Daily Sonan</string>
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
