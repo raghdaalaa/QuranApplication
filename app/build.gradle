@@ -47,5 +47,14 @@ dependencies {
     // cardview dependences
     implementation "androidx.cardview:cardview:1.0.0"
 
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.6.2"
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+
+    //recyclerview
+    implementation 'com.android.support:recyclerview-v7:30.0.0'
+
+
 
 }
