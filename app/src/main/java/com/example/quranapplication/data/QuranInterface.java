@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 
 public interface QuranInterface {
 
-    @GET("chapters/list-chapters")
+    @GET("chapters")
     public  Call<QuranModel> getQuran();
 }
