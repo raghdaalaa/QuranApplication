@@ -10,12 +10,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quranapplication.data.QuranClient;
-import com.example.quranapplication.data.QuranInterface;
+import com.example.quranapplication.Chapterdata.QuranClient;
+import com.example.quranapplication.Chapterdata.QuranInterface;
 import com.example.quranapplication.pojo.Chapter;
 import com.example.quranapplication.pojo.QuranModel;
 
@@ -36,6 +37,7 @@ public class IndexsFragment extends Fragment {
     QuranInterface quranInterface;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class IndexsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
 
         recyclerView = v.findViewById(R.id.surah_rv_id);
+
 
         return v;
 
@@ -64,7 +67,24 @@ public class IndexsFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        quranAdapter = new QuranAdapter(quranList, getContext());
+        quranAdapter = new QuranAdapter(quranList, getContext(), new QuranAdapter.OnChapterClick() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+               Chapter chapterid=quranList.get(position);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("ChapterId", chapterid);
+
+
+                Log.d("raghda",bundle.toString());
+
+                Navigation.findNavController(view).navigate(R.id.action_indexsFragment_to_detailsFragment);
+
+
+
+
+            }
+        });
         recyclerView.setAdapter(quranAdapter);
 
     }

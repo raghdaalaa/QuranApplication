@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranapplication.pojo.Chapter;
-import com.example.quranapplication.pojo.QuranModel;
 
 import java.util.List;
 
@@ -19,10 +18,19 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
 
     List<Chapter> QuranList;
     Context context;
+    OnChapterClick onChapterClick;
 
-    public QuranAdapter(List<Chapter> quranList, Context context) {
+    //recyclerview listeners
+    public interface OnChapterClick{
+       void onItemClick(View view,int position);
+
+    }
+
+    public QuranAdapter(List<Chapter> quranList, Context context,OnChapterClick onChapterClick) {
         QuranList = quranList;
         this.context = context;
+        this.onChapterClick=onChapterClick;
+
     }
 
     @NonNull
@@ -31,7 +39,7 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
         // inflate layout
 
         return new QuranViewHolder(LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.row_item
+                inflate(R.layout.chapter_item
                         , parent, false));
     }
 
@@ -42,6 +50,16 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
         holder.chapterNumber_tv.setText(QuranList.get(position).getChapterNumber()+"");
         holder.nameSimple_Tv.setText(QuranList.get(position).getNameSimple());
         holder.versesCount.setText(QuranList.get(position).getVersesCount()+"");
+
+
+
+        //listeners
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               onChapterClick.onItemClick(view,position);
+           }
+       });
 
     }
 
@@ -63,6 +81,7 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
             chapterNumber_tv=itemView.findViewById(R.id.chapterNumber_tv);
             nameSimple_Tv=itemView.findViewById(R.id.nameSimple_Tv);
             versesCount=itemView.findViewById(R.id.versesCount);
+
 
         }
     }

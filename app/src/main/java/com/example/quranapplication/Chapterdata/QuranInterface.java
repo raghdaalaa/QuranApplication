@@ -1,9 +1,6 @@
-package com.example.quranapplication.data;
+package com.example.quranapplication.Chapterdata;
 
-import com.example.quranapplication.pojo.Chapter;
 import com.example.quranapplication.pojo.QuranModel;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

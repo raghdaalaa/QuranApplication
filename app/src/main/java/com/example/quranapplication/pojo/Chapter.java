@@ -2,8 +2,10 @@ package com.example.quranapplication.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Chapter {
+
+public class Chapter implements Serializable {
 
     @SerializedName("id")
     private Integer id;

@@ -13,7 +13,11 @@
         android:id="@+id/indexsFragment"
         android:name="com.example.quranapplication.IndexsFragment"
         android:label="fragment_indexs"
-        tools:layout="@layout/fragment_indexs" />
+        tools:layout="@layout/fragment_indexs" >
+        <action
+            android:id="@+id/action_indexsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.quranapplication.settingsFragment"
@@ -50,6 +54,11 @@
         android:name="com.example.quranapplication.Konoz2.Work"
         android:label="fragment_work"
         tools:layout="@layout/fragment_work" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.quranapplication.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 
 
 </navigation>
