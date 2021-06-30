@@ -1,9 +1,10 @@
+
 package com.example.quranapplication.VersesModel;
 
-
 import java.util.List;
-
+import com.example.quranapplication.VersesModel.Verse;
 import com.google.gson.annotations.SerializedName;
+
 
 public class VerseModel {
 
@@ -18,5 +19,5 @@ public class VerseModel {
     public void setVerses(List<Verse> verses) {
         this.verses = verses;
     }
-}
 
+}
