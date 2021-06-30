@@ -58,7 +58,12 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.quranapplication.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="chapterId"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 
 
 </navigation>

@@ -13,7 +13,7 @@ import com.example.quranapplication.pojo.Chapter;
 
 import java.util.List;
 
-public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHolder>{
+public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHolder> {
 
 
     List<Chapter> QuranList;
@@ -21,15 +21,15 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
     OnChapterClick onChapterClick;
 
     //recyclerview listeners
-    public interface OnChapterClick{
-       void onItemClick(View view,int position);
+    public interface OnChapterClick {
+        void onItemClick(View view, int chapterId);
 
     }
 
-    public QuranAdapter(List<Chapter> quranList, Context context,OnChapterClick onChapterClick) {
+    public QuranAdapter(List<Chapter> quranList, Context context, OnChapterClick onChapterClick) {
         QuranList = quranList;
         this.context = context;
-        this.onChapterClick=onChapterClick;
+        this.onChapterClick = onChapterClick;
 
     }
 
@@ -43,23 +43,19 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
                         , parent, false));
     }
 
-   @Override
+    @Override
     public void onBindViewHolder(@NonNull QuranViewHolder holder, int position) {
         // بتستدعي كل اما ييجي يعمل bind ل viewholder جديد
-        holder.nameArabic_Tv.setText(QuranList.get(position).getNameArabic());
-        holder.chapterNumber_tv.setText(QuranList.get(position).getChapterNumber()+"");
-        holder.nameSimple_Tv.setText(QuranList.get(position).getNameSimple());
-        holder.versesCount.setText(QuranList.get(position).getVersesCount()+"");
+        Chapter chapter = QuranList.get(position);
 
+        holder.nameArabic_Tv.setText(chapter.getNameArabic());
+        holder.chapterNumber_tv.setText(chapter.getChapterNumber() + "");
+        holder.nameSimple_Tv.setText(chapter.getNameSimple());
+        holder.versesCount.setText(chapter.getVersesCount() + "");
 
 
         //listeners
-       holder.itemView.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               onChapterClick.onItemClick(view,position);
-           }
-       });
+        holder.itemView.setOnClickListener(view -> onChapterClick.onItemClick(view, chapter.getId()));
 
     }
 
@@ -69,18 +65,17 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
     }
 
 
-
     public class QuranViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-        TextView nameArabic_Tv,chapterNumber_tv,nameSimple_Tv,versesCount;
+        TextView nameArabic_Tv, chapterNumber_tv, nameSimple_Tv, versesCount;
 
         public QuranViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameArabic_Tv=itemView.findViewById(R.id.nameArabic_Tv);
-            chapterNumber_tv=itemView.findViewById(R.id.chapterNumber_tv);
-            nameSimple_Tv=itemView.findViewById(R.id.nameSimple_Tv);
-            versesCount=itemView.findViewById(R.id.versesCount);
+            nameArabic_Tv = itemView.findViewById(R.id.nameArabic_Tv);
+            chapterNumber_tv = itemView.findViewById(R.id.chapterNumber_tv);
+            nameSimple_Tv = itemView.findViewById(R.id.nameSimple_Tv);
+            versesCount = itemView.findViewById(R.id.versesCount);
 
 
         }

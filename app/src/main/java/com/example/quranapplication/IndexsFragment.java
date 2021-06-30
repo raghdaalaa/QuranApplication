@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranapplication.Chapterdata.QuranClient;
 import com.example.quranapplication.Chapterdata.QuranInterface;
+import com.example.quranapplication.IndexsFragmentDirections.ActionIndexsFragmentToDetailsFragment;
 import com.example.quranapplication.pojo.Chapter;
 import com.example.quranapplication.pojo.QuranModel;
 
@@ -37,16 +38,12 @@ public class IndexsFragment extends Fragment {
     QuranInterface quranInterface;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
 
         recyclerView = v.findViewById(R.id.surah_rv_id);
-
-
         return v;
 
 
@@ -55,36 +52,20 @@ public class IndexsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         setUpPostsRv();
         getAllPosts();
-
-
     }
 
     private void setUpPostsRv() {
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        quranAdapter = new QuranAdapter(quranList, getContext(), new QuranAdapter.OnChapterClick() {
-            @Override
-            public void onItemClick(View view, int position) {
 
-               Chapter chapterid=quranList.get(position);
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("ChapterId", chapterid);
-
-
-                Log.d("raghda",bundle.toString());
-
-                Navigation.findNavController(view).navigate(R.id.action_indexsFragment_to_detailsFragment);
-
-
-
-
-            }
+        quranAdapter = new QuranAdapter(quranList, getContext(), (view, chapterId) -> {
+            ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
+            action.setChapterId(chapterId);
+            Navigation.findNavController(view).navigate(action);
         });
+
         recyclerView.setAdapter(quranAdapter);
 
     }

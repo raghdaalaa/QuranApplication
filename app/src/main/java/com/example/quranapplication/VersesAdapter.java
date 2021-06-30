@@ -32,6 +32,11 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
         this.context = context;
     }
 
+    public void setVersesList(List<Verse> versesList){
+        this.versesList = versesList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public VersesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
