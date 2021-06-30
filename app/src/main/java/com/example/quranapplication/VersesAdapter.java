@@ -52,9 +52,17 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     public void onBindViewHolder(@NonNull VersesViewHolder holder, int position) {
         // بتستدعي كل اما ييجي يعمل bind ل viewholder جديد
 
-        holder.ver_Name_ar.setText(versesList.get(position).getTextIndopak());
-        holder.ver_Num.setText(versesList.get(position).getVerseNumber()+"");
-        holder.verse_translated.setText(versesList.get(position).getTranslations()+"");
+        Verse verse = versesList.get(position);
+
+        holder.ver_Name_ar.setText(verse.getTextIndopak());
+        holder.ver_Num.setText(verse.getVerseNumber()+"");
+        List<Translation> translations = verse.getTranslations();
+        for (int i = 0; i < translations.size(); i++) {
+            Translation translation = translations.get(i);
+
+            if (translation.getResourceId() == 12)
+                holder.verse_translated.setText(translation.getText());
+        }
 
 
 
