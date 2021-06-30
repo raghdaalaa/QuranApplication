@@ -91,7 +91,7 @@ public class IndexsFragment extends Fragment {
 
     private void getAllPosts() {
         quranInterface = QuranClient.getRetrofit().create(QuranInterface.class);
-        Call<QuranModel> call = quranInterface.getQuran();
+        Call<QuranModel> call = quranInterface.getQuran("fr");
         call.enqueue(new Callback<QuranModel>() {
             @Override
             public void onResponse(Call<QuranModel> call, Response<QuranModel> response) {

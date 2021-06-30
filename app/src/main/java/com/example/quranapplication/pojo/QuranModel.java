@@ -8,9 +8,9 @@ import java.util.List;
 
 public class QuranModel {
 
-    @SerializedName("chapters")
 
-    private List<Chapter> chapters ;
+    @SerializedName("chapters")
+    private List<Chapter> chapters = null;
 
     public List<Chapter> getChapters() {
         return chapters;
@@ -21,3 +21,4 @@ public class QuranModel {
     }
 
 }
+

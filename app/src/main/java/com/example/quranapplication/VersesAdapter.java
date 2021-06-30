@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quranapplication.VersesModel.Translation;
 import com.example.quranapplication.VersesModel.Verse;
 
 
@@ -22,11 +23,11 @@ import java.util.List;
 public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesViewHolder> {
 
     List<Verse> versesList;
+    List<Translation> translationList;
     Context context;
 
+
     // constructor
-
-
     public VersesAdapter(List<Verse> versesList, Context context) {
         this.versesList = versesList;
         this.context = context;
@@ -48,6 +49,8 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
 
         holder.ver_Name_ar.setText(versesList.get(position).getTextIndopak());
         holder.ver_Num.setText(versesList.get(position).getVerseNumber()+"");
+        holder.verse_translated.setText(versesList.get(position).getTranslations()+"");
+
 
 
 
@@ -62,7 +65,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     public class VersesViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-   TextView ver_Name_ar,ver_Num ;
+   TextView ver_Name_ar,ver_Num ,verse_translated;
    Button copy_tv,volume_tv;
 
 
@@ -71,6 +74,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
             super(itemView);
             ver_Name_ar=itemView.findViewById(R.id.verse_ara_tv);
             ver_Num=itemView.findViewById(R.id.verse_Num_tv);
+            verse_translated=itemView.findViewById(R.id.verse_translated_tv);
             copy_tv=itemView.findViewById(R.id.copy_button);
             volume_tv=itemView.findViewById(R.id.volume_button);
 

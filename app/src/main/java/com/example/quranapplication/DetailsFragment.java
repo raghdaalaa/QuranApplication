@@ -18,8 +18,10 @@ import android.widget.Toast;
 
 import com.example.quranapplication.Chapterdata.QuranClient;
 import com.example.quranapplication.Chapterdata.QuranInterface;
+import com.example.quranapplication.VersesModel.Translation;
 import com.example.quranapplication.VersesModel.Verse;
 import com.example.quranapplication.VersesModel.VerseModel;
+import com.example.quranapplication.Versesdata.TranslationInterface;
 import com.example.quranapplication.Versesdata.VersesClient;
 import com.example.quranapplication.Versesdata.VersesInterface;
 import com.example.quranapplication.pojo.Chapter;
@@ -39,9 +41,9 @@ public class DetailsFragment extends Fragment {
     VersesAdapter versesAdapter;
     List<Verse> verseList = new ArrayList<>();
     VersesInterface versesInterface;
+    TranslationInterface translationInterface;
     Chapter recivedChapter_id;
-    Verse verse;
-   // TextView datail_tv;
+
 
 
     @Override
@@ -67,6 +69,7 @@ public class DetailsFragment extends Fragment {
         }
        setUpPostsRv();
         getAllPosts();
+        getTranslation();
 
     }
 
@@ -83,8 +86,10 @@ public class DetailsFragment extends Fragment {
     private void getAllPosts() {
 
         versesInterface = VersesClient.getRetrofit().create(VersesInterface.class);
-        verse.setChapterId(recivedChapter_id.getChapterNumber());
-            Call<VerseModel> call = versesInterface.getVerses(verse.getChapterId()+"");
+
+      //  verse.setChapterId(recivedChapter_id.getChapterNumber());
+
+            Call<VerseModel> call = versesInterface.getVerses("1");
             call.enqueue(new Callback<VerseModel>() {
                 @Override
                 public void onResponse(Call<VerseModel> call, Response<VerseModel> response) {
@@ -104,4 +109,29 @@ public class DetailsFragment extends Fragment {
             });
 
         }
+
+    private void getTranslation() {
+
+        translationInterface = VersesClient.getRetrofit().create(TranslationInterface.class);
+
+        Call<VerseModel> call = translationInterface.getVersesTranslation(33);
+        call.enqueue(new Callback<VerseModel>() {
+            @Override
+            public void onResponse(Call<VerseModel> call, Response<VerseModel> response) {
+                verseList.clear();
+                verseList.addAll(response.body().getVerses());
+                Log.d("gff", verseList.toString());
+                versesAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<VerseModel> call, Throwable t) {
+                call.cancel();
+                Toast.makeText(getContext(), "Failed:" + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
     }

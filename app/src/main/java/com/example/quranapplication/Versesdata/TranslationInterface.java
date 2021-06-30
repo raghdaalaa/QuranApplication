@@ -2,15 +2,13 @@ package com.example.quranapplication.Versesdata;
 
 import com.example.quranapplication.VersesModel.VerseModel;
 
-
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface VersesInterface {
+public interface TranslationInterface {
 
     @GET("chapters/{chapter_id}/verses")
-    public Call<VerseModel> getVerses(@Path("chapter_id") String chapter_id);
+    public Call<VerseModel> getVersesTranslation(@Query("translations") int translations);
 
 }
