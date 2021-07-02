@@ -1,9 +1,8 @@
-package com.example.quranapplication.VersesModel;
+ package com.example.quranapplication.VersesModel;
 
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
 
 public class Translation {
 
@@ -16,6 +15,9 @@ public class Translation {
     @SerializedName("text")
 
     private String text;
+    @SerializedName("resource_name")
+
+    private String resourceName;
     @SerializedName("resource_id")
 
     private Integer resourceId;
@@ -44,6 +46,14 @@ public class Translation {
         this.text = text;
     }
 
+    public String getResourceName() {
+        return resourceName;
+    }
+
+    public void setResourceName(String resourceName) {
+        this.resourceName = resourceName;
+    }
+
     public Integer getResourceId() {
         return resourceId;
     }
@@ -52,6 +62,4 @@ public class Translation {
         this.resourceId = resourceId;
     }
 
-
 }
-

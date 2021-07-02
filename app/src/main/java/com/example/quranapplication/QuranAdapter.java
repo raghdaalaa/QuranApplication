@@ -50,7 +50,7 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
 
         holder.nameArabic_Tv.setText(chapter.getNameArabic());
         holder.chapterNumber_tv.setText(chapter.getChapterNumber() + "");
-        holder.nameSimple_Tv.setText(chapter.getNameSimple());
+        //holder.nameSimple_Tv.setText(chapter.getNameSimple());
         holder.versesCount.setText(chapter.getVersesCount() + "");
 
 
@@ -68,13 +68,13 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
     public class QuranViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-        TextView nameArabic_Tv, chapterNumber_tv, nameSimple_Tv, versesCount;
+        TextView nameArabic_Tv, chapterNumber_tv, versesCount;
 
         public QuranViewHolder(@NonNull View itemView) {
             super(itemView);
             nameArabic_Tv = itemView.findViewById(R.id.nameArabic_Tv);
             chapterNumber_tv = itemView.findViewById(R.id.chapterNumber_tv);
-            nameSimple_Tv = itemView.findViewById(R.id.nameSimple_Tv);
+          //  nameSimple_Tv = itemView.findViewById(R.id.nameSimple_Tv);
             versesCount = itemView.findViewById(R.id.versesCount);
 
 

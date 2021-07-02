@@ -1,9 +1,12 @@
-package com.example.quranapplication.VersesModel;
+ package com.example.quranapplication.VersesModel;
+
 import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 
 public class Verse {
+
     @SerializedName("id")
 
     private Integer id;
@@ -13,12 +16,12 @@ public class Verse {
     @SerializedName("chapter_id")
 
     private Integer chapterId;
-    @SerializedName("text_indopak")
+    @SerializedName("text_madani")
 
-    private String textIndopak;
+    private String textMadani;
     @SerializedName("translations")
 
-    private List<Translation> translations ;
+    private List<Translation> translations = null;
 
     public Integer getId() {
         return id;
@@ -44,12 +47,12 @@ public class Verse {
         this.chapterId = chapterId;
     }
 
-    public String getTextIndopak() {
-        return textIndopak;
+    public String getTextMadani() {
+        return textMadani;
     }
 
-    public void setTextIndopak(String textIndopak) {
-        this.textIndopak = textIndopak;
+    public void setTextMadani(String textMadani) {
+        this.textMadani = textMadani;
     }
 
     public List<Translation> getTranslations() {

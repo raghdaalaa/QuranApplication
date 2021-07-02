@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quranapplication.VersesModel.Meta;
 import com.example.quranapplication.VersesModel.Verse;
 import com.example.quranapplication.VersesModel.VerseModel;
 import com.example.quranapplication.Versesdata.VersesClient;
@@ -34,8 +35,10 @@ public class DetailsFragment extends Fragment {
     VersesAdapter versesAdapter;
     List<Verse> verseList = new ArrayList<>();
     VersesInterface versesInterface;
+    Meta meta;
     private int chapterId;
     private int currentPage = 1;
+   
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,7 +78,14 @@ public class DetailsFragment extends Fragment {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (!recyclerView.canScrollVertically(1)) {
-                    Log.d("ManoO", "Bottom");
+                    // Log.d("ManoO", "Bottom");
+                    if (currentPage != meta.getTotalPages()) {
+                        for (int i = 1; i < meta.getTotalPages(); i++) {
+                            currentPage++;
+                            getAllPosts(chapterId, currentPage);
+                        }
+                    }
+
                 }
             }
         });

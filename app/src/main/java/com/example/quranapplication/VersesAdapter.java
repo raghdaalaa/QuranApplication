@@ -23,7 +23,7 @@ import java.util.List;
 public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesViewHolder> {
 
     List<Verse> versesList;
-    List<Translation> translationList;
+  //  List<Translation> translationList;
     Context context;
 
 
@@ -54,15 +54,15 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
 
         Verse verse = versesList.get(position);
 
-        holder.ver_Name_ar.setText(verse.getTextIndopak());
+        holder.ver_Name_ar.setText(verse.getTextMadani());
         holder.ver_Num.setText(verse.getVerseNumber()+"");
-        List<Translation> translations = verse.getTranslations();
-        for (int i = 0; i < translations.size(); i++) {
-            Translation translation = translations.get(i);
-
-            if (translation.getResourceId() == 12)
-                holder.verse_translated.setText(translation.getText());
-        }
+//        List<Translation> translations = verse.getTranslations();
+//        for (int i = 0; i < translations.size(); i++) {
+//            Translation translation = translations.get(i);
+//
+//            if (translation.getResourceId() == 12)
+//                holder.verse_translated.setText(translation.getText());
+//        }
 
 
 
@@ -78,7 +78,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     public class VersesViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-   TextView ver_Name_ar,ver_Num ,verse_translated;
+   TextView ver_Name_ar,ver_Num ;
    Button copy_tv,volume_tv;
 
 
@@ -87,7 +87,6 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
             super(itemView);
             ver_Name_ar=itemView.findViewById(R.id.verse_ara_tv);
             ver_Num=itemView.findViewById(R.id.verse_Num_tv);
-            verse_translated=itemView.findViewById(R.id.verse_translated_tv);
             copy_tv=itemView.findViewById(R.id.copy_button);
             volume_tv=itemView.findViewById(R.id.volume_button);
 
