@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/verse_ara_tv"
-        android:layout_width="338dp"
-        android:layout_height="34dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
@@ -36,18 +36,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/verse_ara_tv" />
 
-    <TextView
-        android:id="@+id/verse_translated_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verse_ara_tv" />
+<!--    <TextView-->
+<!--        android:id="@+id/verse_translated_tv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginLeft="56dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="TextView"-->
+<!--        android:textSize="25dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/verse_ara_tv" />-->
 
     <Button
         android:id="@+id/copy_button"
@@ -58,7 +58,7 @@
         android:layout_marginRight="124dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verse_translated_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/verse_ara_tv" />
 
     <Button
         android:id="@+id/volume_button"
@@ -69,7 +69,8 @@
         android:layout_marginTop="39dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verse_translated_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/verse_ara_tv"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
