@@ -2,19 +2,28 @@ package com.example.quranapplication.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Chapter {
+
+public class Chapter implements Serializable {
 
     @SerializedName("id")
     private Integer id;
     @SerializedName("chapter_number")
     private Integer chapterNumber;
+    @SerializedName("bismillah_pre")
+    private Boolean bismillahPre;
+    @SerializedName("revelation_place")
+    private String revelationPlace;
     @SerializedName("name_arabic")
+
     private String nameArabic;
-    @SerializedName("name_simple")
-    private String nameSimple;
     @SerializedName("verses_count")
+
     private Integer versesCount;
+    @SerializedName("translated_name")
+
+    private TranslatedName translatedName;
 
     public Integer getId() {
         return id;
@@ -32,6 +41,22 @@ public class Chapter {
         this.chapterNumber = chapterNumber;
     }
 
+    public Boolean getBismillahPre() {
+        return bismillahPre;
+    }
+
+    public void setBismillahPre(Boolean bismillahPre) {
+        this.bismillahPre = bismillahPre;
+    }
+
+    public String getRevelationPlace() {
+        return revelationPlace;
+    }
+
+    public void setRevelationPlace(String revelationPlace) {
+        this.revelationPlace = revelationPlace;
+    }
+
     public String getNameArabic() {
         return nameArabic;
     }
@@ -40,20 +65,20 @@ public class Chapter {
         this.nameArabic = nameArabic;
     }
 
-    public String getNameSimple() {
-        return nameSimple;
-    }
-
-    public void setNameSimple(String nameSimple) {
-        this.nameSimple = nameSimple;
-    }
-
     public Integer getVersesCount() {
         return versesCount;
     }
 
     public void setVersesCount(Integer versesCount) {
         this.versesCount = versesCount;
+    }
+
+    public TranslatedName getTranslatedName() {
+        return translatedName;
+    }
+
+    public void setTranslatedName(TranslatedName translatedName) {
+        this.translatedName = translatedName;
     }
 
 }

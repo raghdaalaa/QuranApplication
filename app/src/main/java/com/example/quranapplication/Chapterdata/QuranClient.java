@@ -1,4 +1,4 @@
-package com.example.quranapplication.data;
+package com.example.quranapplication.Chapterdata;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
