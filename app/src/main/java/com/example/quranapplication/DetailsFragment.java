@@ -98,7 +98,7 @@ public class DetailsFragment extends Fragment {
             }
         };
 
-        versesService.getVerses(chapterId, pageNumber).enqueue(callback);
+        versesService.getVerses(chapterId, pageNumber,17).enqueue(callback);
     }
 }
 
