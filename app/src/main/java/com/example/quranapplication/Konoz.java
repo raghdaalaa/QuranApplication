@@ -66,7 +66,6 @@ public class Konoz extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-      
         final NavController navController = Navigation.findNavController(view);
         CardView cardView= view.findViewById(R.id.card_top);
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +84,6 @@ public class Konoz extends Fragment {
 
         });
     }
-
 
 
 
