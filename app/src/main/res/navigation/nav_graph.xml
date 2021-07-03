@@ -13,7 +13,11 @@
         android:id="@+id/indexsFragment"
         android:name="com.example.quranapplication.IndexsFragment"
         android:label="fragment_indexs"
-        tools:layout="@layout/fragment_indexs" />
+        tools:layout="@layout/fragment_indexs" >
+        <action
+            android:id="@+id/action_indexsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.quranapplication.settingsFragment"
@@ -34,30 +38,33 @@
         android:label="fragment_konoz"
         tools:layout="@layout/fragment_konoz" >
         <action
-            android:id="@+id/action_konoz_to_doaa2"
-            app:destination="@id/doaa2" />
+
+            android:id="@+id/action_konoz_to_doaa"
+            app:destination="@id/doaa" />
         <action
-            android:id="@+id/action_konoz_to_a3mal2"
-            app:destination="@id/a3mal2" />
+            android:id="@+id/action_konoz_to_work"
+            app:destination="@id/work" />
     </fragment>
     <fragment
-        android:id="@+id/a3mal2"
-        android:name="com.example.quranapplication.konozFeature.A3mal"
-        android:label="fragment_a3mal"
-        tools:layout="@layout/fragment_a3mal" />
-    <fragment
-        android:id="@+id/doaa2"
-        android:name="com.example.quranapplication.konozFeature.doaa"
+        android:id="@+id/doaa"
+        android:name="com.example.quranapplication.Konoz2.Doaa"
         android:label="fragment_doaa"
         tools:layout="@layout/fragment_doaa" />
     <fragment
-        android:id="@+id/languageSelect"
-        android:name="com.example.quranapplication.language.languageSelect"
-        android:label="fragment_language_select"
-        tools:layout="@layout/fragment_language_select" >
-        <action
-            android:id="@+id/action_languageSelect_to_homeFragment"
-            app:destination="@id/homeFragment" />
+        android:id="@+id/work"
+        android:name="com.example.quranapplication.Konoz2.Work"
+        android:label="fragment_work"
+        tools:layout="@layout/fragment_work" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.quranapplication.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="chapterId"
+            app:argType="integer"
+            android:defaultValue="1" />
+
     </fragment>
 
 

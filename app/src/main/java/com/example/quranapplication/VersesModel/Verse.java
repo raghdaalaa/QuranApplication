@@ -1,0 +1,63 @@
+package com.example.quranapplication.VersesModel;
+import java.util.List;
+import com.google.gson.annotations.SerializedName;
+
+
+public class Verse {
+    @SerializedName("id")
+
+    private Integer id;
+    @SerializedName("verse_number")
+
+    private Integer verseNumber;
+    @SerializedName("chapter_id")
+
+    private Integer chapterId;
+    @SerializedName("text_indopak")
+
+    private String textIndopak;
+    @SerializedName("translations")
+
+    private List<Translation> translations ;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getVerseNumber() {
+        return verseNumber;
+    }
+
+    public void setVerseNumber(Integer verseNumber) {
+        this.verseNumber = verseNumber;
+    }
+
+    public Integer getChapterId() {
+        return chapterId;
+    }
+
+    public void setChapterId(Integer chapterId) {
+        this.chapterId = chapterId;
+    }
+
+    public String getTextIndopak() {
+        return textIndopak;
+    }
+
+    public void setTextIndopak(String textIndopak) {
+        this.textIndopak = textIndopak;
+    }
+
+    public List<Translation> getTranslations() {
+        return translations;
+    }
+
+    public void setTranslations(List<Translation> translations) {
+        this.translations = translations;
+    }
+
+}
