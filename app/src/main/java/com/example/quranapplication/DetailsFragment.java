@@ -87,7 +87,7 @@ public class DetailsFragment extends Fragment {
 
         versesInterface = VersesClient.getRetrofit().create(VersesInterface.class);
 
-        Call<VerseModel> call = versesInterface.getVerses(chapterId, pageNumber , 17);
+        Call<VerseModel> call = versesInterface.getVerses(chapterId, pageNumber , 31);
         call.enqueue(new Callback<VerseModel>() {
             @Override
             public void onResponse(Call<VerseModel> call, Response<VerseModel> response) {

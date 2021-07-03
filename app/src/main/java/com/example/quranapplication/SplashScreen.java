@@ -22,7 +22,7 @@ Thread thread =new Thread(){
     public void run() {
         try {
             sleep(3000);
-            Intent intent=new Intent(SplashScreen.this,languageSelect.class);
+            Intent intent=new Intent(SplashScreen.this,MainActivity.class);
            startActivity(intent);
             finish();
         }catch (InterruptedException e){

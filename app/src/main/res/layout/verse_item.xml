@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="@id/verse_ara_tv" />
 
     <TextView
-        android:id="@+id/verse_translated_tv"
+        android:id="@+id/verse_translated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -58,7 +58,7 @@
         android:layout_marginRight="124dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verse_translated_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/verse_translated" />
 
     <Button
         android:id="@+id/volume_button"
@@ -69,7 +69,7 @@
         android:layout_marginTop="39dp"
         android:text="Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verse_translated_tv"
+        app:layout_constraintTop_toBottomOf="@+id/verse_translated"
         />
 
 
