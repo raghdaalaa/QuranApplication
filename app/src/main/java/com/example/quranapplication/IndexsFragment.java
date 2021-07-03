@@ -93,7 +93,8 @@ public class IndexsFragment extends Fragment {
                 Toast.makeText(getContext(), "Failed:" + t.getMessage(), Toast.LENGTH_LONG).show();
 
 
-            }
-        });
-    }
+
+
 }
+
+  
