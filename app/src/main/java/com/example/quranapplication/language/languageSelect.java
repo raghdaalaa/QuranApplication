@@ -1,10 +1,11 @@
-package com.example.quranapplication;
+package com.example.quranapplication.language;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,13 +13,13 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Konoz#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Konoz extends Fragment {
+import com.example.quranapplication.MainActivity;
+import com.example.quranapplication.R;
+
+
+public class languageSelect extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +30,7 @@ public class Konoz extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Konoz() {
+    public languageSelect() {
         // Required empty public constructor
     }
 
@@ -39,11 +40,11 @@ public class Konoz extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Konoz.
+     * @return A new instance of fragment languageSelect.
      */
     // TODO: Rename and change types and number of parameters
-    public static Konoz newInstance(String param1, String param2) {
-        Konoz fragment = new Konoz();
+    public static languageSelect newInstance(String param1, String param2) {
+        languageSelect fragment = new languageSelect();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,28 +61,24 @@ public class Konoz extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_konoz, container, false);
+        return inflater.inflate(R.layout.fragment_language_select, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final NavController navController= Navigation.findNavController(view);
-        CardView cardView1= view.findViewById(R.id.card_doaa);
-        cardView1.setOnClickListener(new View.OnClickListener() {
+        Button button=view.findViewById(R.id.en_button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_konoz_to_doaa2);
-            }
-        });
-        CardView cardView2=view.findViewById(R.id.card_azkar);
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_konoz_to_a3mal2);}});
+                navController.navigate(R.id.indexsFragment);
+            }});
+
+
     }
 }
