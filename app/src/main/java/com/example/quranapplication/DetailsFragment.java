@@ -69,25 +69,25 @@ public class DetailsFragment extends Fragment {
         versesAdapter = new VersesAdapter(verseList, getContext());
 
         recyclerView.setAdapter(versesAdapter);
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (!recyclerView.canScrollVertically(1)) {
-                    Log.d("ManoO", "Bottom");
-                }
+                    Toast.makeText(getContext(), "ggf", Toast.LENGTH_SHORT).show();               }
             }
         });
 
 
     }
 
-    private void getAllPosts(int chapterId, int pageNumber) {
+    private void getAllPosts(int chapterId, int pageNumber ) {
 
         versesInterface = VersesClient.getRetrofit().create(VersesInterface.class);
 
-        Call<VerseModel> call = versesInterface.getVerses(chapterId, pageNumber);
+        Call<VerseModel> call = versesInterface.getVerses(chapterId, pageNumber , 17);
         call.enqueue(new Callback<VerseModel>() {
             @Override
             public void onResponse(Call<VerseModel> call, Response<VerseModel> response) {

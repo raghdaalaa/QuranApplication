@@ -11,5 +11,5 @@ import retrofit2.http.Query;
 public interface VersesInterface {
 
     @GET("chapters/{chapter_id}/verses")
-    public Call<VerseModel> getVerses(@Path("chapter_id") int id, @Query("page") int pageNumber);
+    public Call<VerseModel> getVerses(@Path("chapter_id") int id, @Query("page") int pageNumber , @Query("translations") int translation);
 }
