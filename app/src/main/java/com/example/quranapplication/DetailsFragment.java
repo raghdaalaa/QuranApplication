@@ -1,7 +1,6 @@
 package com.example.quranapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +17,13 @@ import com.example.quranapplication.VersesModel.Meta;
 import com.example.quranapplication.VersesModel.Verse;
 import com.example.quranapplication.VersesModel.VerseModel;
 import com.example.quranapplication.Versesdata.VersesClient;
-import com.example.quranapplication.Versesdata.VersesInterface;
+import com.example.quranapplication.Versesdata.VersesService;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,13 +33,13 @@ import retrofit2.Response;
 public class DetailsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    VersesAdapter versesAdapter;
+    private VersesAdapter versesAdapter;
     List<Verse> verseList = new ArrayList<>();
-    VersesInterface versesInterface;
-    Meta meta;
+    VersesService versesService;
     private int chapterId;
     private int currentPage = 1;
-   
+    private Meta meta;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +70,7 @@ public class DetailsFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        versesAdapter = new VersesAdapter(verseList, getContext());
+        versesAdapter = new VersesAdapter();
 
         recyclerView.setAdapter(versesAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -79,11 +80,9 @@ public class DetailsFragment extends Fragment {
 
                 if (!recyclerView.canScrollVertically(1)) {
                     // Log.d("ManoO", "Bottom");
-                    if (currentPage != meta.getTotalPages()) {
-                        for (int i = 1; i < meta.getTotalPages(); i++) {
-                            currentPage++;
-                            getAllPosts(chapterId, currentPage);
-                        }
+                    Integer totalPages = meta.getTotalPages();
+                    if (currentPage != totalPages) {
+                        getAllPosts(chapterId, ++currentPage);
                     }
 
                 }
@@ -95,23 +94,24 @@ public class DetailsFragment extends Fragment {
 
     private void getAllPosts(int chapterId, int pageNumber) {
 
-        versesInterface = VersesClient.getRetrofit().create(VersesInterface.class);
+        versesService = VersesClient.getRetrofit().create(VersesService.class);
 
-        Call<VerseModel> call = versesInterface.getVerses(chapterId, pageNumber);
-        call.enqueue(new Callback<VerseModel>() {
+        Callback<VerseModel> callback = new Callback<VerseModel>() {
             @Override
-            public void onResponse(Call<VerseModel> call, Response<VerseModel> response) {
+            public void onResponse(@NotNull Call<VerseModel> call, @NotNull Response<VerseModel> response) {
                 verseList.clear();
-                List<Verse> verses = response.body().getVerses();
-                versesAdapter.setVersesList(verses);
+                meta = Objects.requireNonNull(response.body()).getMeta();
+                versesAdapter.addVerses(response.body().getVerses());
             }
 
             @Override
-            public void onFailure(Call<VerseModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<VerseModel> call, @NotNull Throwable t) {
                 call.cancel();
                 Toast.makeText(getContext(), "Failed:" + t.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        };
+
+        versesService.getVerses(chapterId, pageNumber).enqueue(callback);
     }
 }
 

@@ -1,7 +1,6 @@
 package com.example.quranapplication;
 
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,29 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quranapplication.VersesModel.Translation;
 import com.example.quranapplication.VersesModel.Verse;
-
-
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesViewHolder> {
+    private final List<Verse> versesList = new ArrayList<>();
 
-    List<Verse> versesList;
-  //  List<Translation> translationList;
-    Context context;
+    public VersesAdapter() {    }
 
-
-    // constructor
-    public VersesAdapter(List<Verse> versesList, Context context) {
-        this.versesList = versesList;
-        this.context = context;
-    }
-
-    public void setVersesList(List<Verse> versesList){
-        this.versesList = versesList;
+    public void addVerses(List<Verse> versesList) {
+        this.versesList.addAll(versesList);
         notifyDataSetChanged();
     }
 
@@ -42,10 +30,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     @Override
     public VersesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflate layout
-
-        return new VersesViewHolder(LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.verse_item
-                        , null, false));
+        return new VersesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.verse_item, parent, false));
     }
 
     @Override
@@ -55,7 +40,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
         Verse verse = versesList.get(position);
 
         holder.ver_Name_ar.setText(verse.getTextMadani());
-        holder.ver_Num.setText(verse.getVerseNumber()+"");
+        holder.ver_Num.setText(verse.getVerseNumber() + "");
 //        List<Translation> translations = verse.getTranslations();
 //        for (int i = 0; i < translations.size(); i++) {
 //            Translation translation = translations.get(i);
@@ -63,8 +48,6 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
 //            if (translation.getResourceId() == 12)
 //                holder.verse_translated.setText(translation.getText());
 //        }
-
-
 
 
     }
@@ -78,18 +61,16 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     public class VersesViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-   TextView ver_Name_ar,ver_Num ;
-   Button copy_tv,volume_tv;
-
+        TextView ver_Name_ar, ver_Num;
+        Button copy_tv, volume_tv;
 
 
         public VersesViewHolder(@NonNull View itemView) {
             super(itemView);
-            ver_Name_ar=itemView.findViewById(R.id.verse_ara_tv);
-            ver_Num=itemView.findViewById(R.id.verse_Num_tv);
-            copy_tv=itemView.findViewById(R.id.copy_button);
-            volume_tv=itemView.findViewById(R.id.volume_button);
-
+            ver_Name_ar = itemView.findViewById(R.id.verse_ara_tv);
+            ver_Num = itemView.findViewById(R.id.verse_Num_tv);
+            copy_tv = itemView.findViewById(R.id.copy_button);
+            volume_tv = itemView.findViewById(R.id.volume_button);
 
 
         }

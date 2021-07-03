@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface VersesInterface {
+public interface VersesService {
 
     @GET("chapters/{chapter_id}/verses")
     public Call<VerseModel> getVerses(@Path("chapter_id") int id ,@Query("page") int pageNumber);
