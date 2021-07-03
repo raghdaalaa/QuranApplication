@@ -57,13 +57,13 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
         holder.ver_Name_ar.setText(verse.getTextIndopak());
         holder.ver_Num.setText(verse.getVerseNumber()+"");
 
-//        List<Translation> translations = verse.getTranslations();
-//        for (int i = 0; i < translations.size(); i++) {
-//            Translation translation = translations.get(i);
-//
-//            if (translation.getResourceId() == 12)
-//                holder.verse_translated.setText(translation.getText());
-//        }
+        List<Translation> translations = verse.getTranslations();
+        for (int i = 0; i < translations.size(); i++) {
+            Translation translation = translations.get(i);
+
+            if (translation.getResourceId() == 17)
+                holder.verse_translated.setText(translation.getText());
+        }
 
 
 
@@ -88,7 +88,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
             super(itemView);
             ver_Name_ar=itemView.findViewById(R.id.verse_ara_tv);
             ver_Num=itemView.findViewById(R.id.verse_Num_tv);
-       //     verse_translated=itemView.findViewById(R.id.verse_translated_tv);
+            verse_translated=itemView.findViewById(R.id.verse_translated_tv);
             copy_tv=itemView.findViewById(R.id.copy_button);
             volume_tv=itemView.findViewById(R.id.volume_button);
 
