@@ -56,7 +56,7 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
             super(itemView);
             nameArabic_Tv = itemView.findViewById(R.id.nameArabic_Tv);
             chapterNumber_tv = itemView.findViewById(R.id.chapterNumber_tv);
-             nameSimple_Tv = itemView.findViewById(R.id.nameTranslated_Tv);
+            nameSimple_Tv = itemView.findViewById(R.id.nameTranslated_Tv);
             versesCount = itemView.findViewById(R.id.versesCount);
 
 
