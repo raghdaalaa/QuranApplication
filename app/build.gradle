@@ -5,7 +5,15 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    //  voiceSearch
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:23.0.1'
+    }
+
     defaultConfig {
+   //  voiceSearch
+        applicationId "com.ibm.watson.developer_cloud.android.myapplication"
+
         applicationId "com.example.f"
         minSdkVersion 24
         targetSdkVersion 30
@@ -25,6 +33,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+//    voiceSearch
+    lintOptions {
+        abortOnError false
+    }
+    buildToolsVersion '28.0.3'
+
 }
 
 
@@ -57,7 +71,6 @@ dependencies {
 
     //recyclerview
     implementation 'com.android.support:recyclerview-v7:30.0.0'
-
 
 
 }

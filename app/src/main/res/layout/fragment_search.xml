@@ -4,22 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".search.SearchFragment">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/target_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/Arabic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Arabic" />
+
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/voice_bt"
-            android:drawableStart="@drawable/ic_baseline_mic_24"
+        <ImageButton
+            android:id="@+id/mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_mic_24" />
+            android:src="@drawable/ic_baseline_mic_24"
+            android:contentDescription="@string/microphone" />
+
 
         <EditText
             android:id="@+id/search_et"
@@ -32,13 +55,19 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_search_black_24dp" />
 
+    </LinearLayout>
 
-   </LinearLayout>
+    <EditText
+        android:id="@+id/total_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 </LinearLayout>
+
 
 </FrameLayout>

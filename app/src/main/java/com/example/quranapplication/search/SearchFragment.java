@@ -1,6 +1,12 @@
 package com.example.quranapplication.search;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,13 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.quranapplication.R;
 
@@ -29,9 +28,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class SearchFragment extends Fragment {
     Button search_bt;
     EditText search_et;
+    EditText total_results;
     RecyclerView recyclerView;
     SearchAdapter searchAdapter;
     List<Result> resultList = new ArrayList<>();
@@ -49,9 +50,11 @@ public class SearchFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         search_bt = v.findViewById(R.id.search_bt);
+        total_results = v.findViewById(R.id.total_results);
         search_et = v.findViewById(R.id.search_et);
         recyclerView = v.findViewById(R.id.recyclerview);
         search = new Search();
+
         return v;
 
     }
@@ -70,23 +73,6 @@ public class SearchFragment extends Fragment {
             }
         });
     }
-
-    //_____________________________________________________________________________/
-
-
-//    private void checkMatching(String query) {
-//        query.contains(" ")
-//        String translation;
-//        for (int i=0;i<resultList.size(); i++){
-//
-//            translation = resultList.get(i).getTranslations().get(0).getText().toString();
-//            if (translation.contains(query)){
-//
-//            }
-//
-//        }
-//    }
-
     //_____________________________________________________________________________/
     public void getAllResult(int page) {
         searchInterface = SearchClient.getRetrofit().create(SearchInterface.class);
@@ -101,6 +87,7 @@ public class SearchFragment extends Fragment {
                 //                    filteration start
                collect = results.stream().filter(s -> s.getText().contains(quary)).collect(Collectors.toList());
                 searchAdapter.addResult(results);
+                total_results.setText("TotalResult = "+search.getTotalResults());
             }
             @Override
             public void onFailure(Call<Search> call, Throwable t) {
