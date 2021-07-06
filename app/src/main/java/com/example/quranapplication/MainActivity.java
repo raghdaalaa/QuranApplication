@@ -6,12 +6,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.quranapplication.search.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
@@ -69,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "language", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.search:
-                Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(MainActivity.this, SearchFragment.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

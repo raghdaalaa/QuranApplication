@@ -2,6 +2,14 @@
     <string name="app_name">QuranApplication</string>
     <string name="Daily_doaa">Daily doaa</string>
 
+     <!--  VoiceSearch -->
+    <string name="input_hint">enter text</string>
+    <string name="target_language">Target Language</string>
+    <string name="english">english</string>
+    <string name="Arabic">Arabic</string>
+    <string name="microphone">Microphone</string>
+    <string name="play">Play</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="The_Duha">The Duha</string>
     <string name="Duha1">The Duha prayer is the voluntary Islamic prayer between the obligatory Islamic prayers of Fajr and Dhuhr.</string>
