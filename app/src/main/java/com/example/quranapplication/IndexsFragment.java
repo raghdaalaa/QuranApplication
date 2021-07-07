@@ -3,6 +3,9 @@ package com.example.quranapplication;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -10,7 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +25,8 @@ import com.example.quranapplication.Chapterdata.QuranInterface;
 import com.example.quranapplication.IndexsFragmentDirections.ActionIndexsFragmentToDetailsFragment;
 import com.example.quranapplication.pojo.Chapter;
 import com.example.quranapplication.pojo.QuranModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +48,41 @@ public class IndexsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
 
         recyclerView = v.findViewById(R.id.surah_rv_id);
         return v;
-
-
     }
+//    actionbar
+
+@Override
+public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull MenuInflater inflater) {
+    inflater.inflate(R.menu.actionbar_index,menu);
+    super.onCreateOptionsMenu(menu, inflater);
+}
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull @NotNull MenuItem item) {
+
+        int id = item.getItemId();
+        if(id== R.id.about_app){
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_indexsFragment_to_aboutAppFragment);}
+        if(id== R.id.share_app){
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_indexsFragment_to_shareAppFragment);
+        }
+        if(id== R.id.language){
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_indexsFragment_to_languageFragment);
+        }
+        if(id== R.id.search) {
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_indexsFragment_to_searchFragment);
+        } return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

@@ -12,6 +12,15 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shareAppFragment"
+            app:destination="@id/shareAppFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bookMarkFragment"
+            app:destination="@id/bookMarkFragment" />
     </fragment>
     <fragment
         android:id="@+id/indexsFragment"
@@ -24,6 +33,15 @@
         <action
             android:id="@+id/action_indexsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_indexsFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_indexsFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/action_indexsFragment_to_shareAppFragment"
+            app:destination="@id/shareAppFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -51,9 +69,6 @@
         <action
             android:id="@+id/action_konoz_to_work"
             app:destination="@id/work" />
-        <action
-            android:id="@+id/action_konoz_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/doaa"
@@ -74,9 +89,6 @@
             android:name="chapterId"
             app:argType="integer"
             android:defaultValue="1" />
-        <action
-            android:id="@+id/action_detailsFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
 
     </fragment>
     <fragment
@@ -84,6 +96,26 @@
         android:name="com.example.quranapplication.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.quranapplication.ActionBar.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/bookMarkFragment"
+        android:name="com.example.quranapplication.ActionBar.BookMarkFragment"
+        android:label="fragment_book_mark"
+        tools:layout="@layout/fragment_book_mark" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.quranapplication.ActionBar.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/shareAppFragment"
+        android:name="com.example.quranapplication.ActionBar.ShareAppFragment"
+        android:label="fragment_share_app"
+        tools:layout="@layout/fragment_share_app" />
 
 
 </navigation>

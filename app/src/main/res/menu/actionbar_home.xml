@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/lastreadFragment"
+        android:id="@+id/go_to_last"
         android:actionLayout="@layout/fragment_last_read"
         android:title="@string/last_read"
         app:showAsAction="never" />
@@ -25,11 +25,6 @@
         android:id="@+id/search"
         android:title="@string/search"
         android:icon="@drawable/ic_search_black_24dp"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/language"
-        android:title="@string/language"
-        android:icon="@drawable/ic_language_black_24dp"
         app:showAsAction="always"/>
 
 
