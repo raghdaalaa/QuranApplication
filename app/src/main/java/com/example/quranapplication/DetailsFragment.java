@@ -61,7 +61,7 @@ public class DetailsFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        versesAdapter = new VersesAdapter();
+        versesAdapter = new VersesAdapter(languageisocode2);
 
         recyclerView.setAdapter(versesAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
