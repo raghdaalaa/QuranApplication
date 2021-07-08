@@ -1,5 +1,7 @@
 package com.example.quranapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +39,9 @@ public class DetailsFragment extends Fragment {
     private int chapterId;
     private int currentPage = 1;
     private Meta meta;
-
+    //save lastposition
+    private int lastposition  ;
+    SharedPreferences preferences ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,9 +56,13 @@ public class DetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         DetailsFragmentArgs bundle = DetailsFragmentArgs.fromBundle(getArguments());
+        //get last position :
+        preferences= getContext().getSharedPreferences("last",Context.MODE_PRIVATE);
+        int chapterId_saved =preferences.getInt("last",0);
+        chapterId=chapterId_saved ;
         chapterId = bundle.getChapterId();
         setUpPostsRv();
-        getAllPosts(chapterId, 1);
+        getAllPosts(chapterId,1);
     }
     private void setUpPostsRv() {
 
@@ -72,9 +81,9 @@ public class DetailsFragment extends Fragment {
                     Integer totalPages = meta.getTotalPages();
                     if (currentPage != totalPages) {
                         getAllPosts(chapterId, ++currentPage);
-                    }
+                    } }
 
-                }
+
             }
         });
     }
@@ -98,7 +107,17 @@ public class DetailsFragment extends Fragment {
             }
         };
 
-        versesService.getVerses(chapterId, pageNumber,17).enqueue(callback);
+        versesService.getVerses(chapterId, pageNumber,33).enqueue(callback);
+    }
+//save last postion
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        lastposition=chapterId ;
+        preferences= getContext().getSharedPreferences("last",Context.MODE_PRIVATE);
+        SharedPreferences.Editor e= preferences.edit();
+        e.putInt("last",lastposition);
+        e.commit();
     }
 }
 
