@@ -89,6 +89,10 @@
             android:name="chapterId"
             app:argType="integer"
             android:defaultValue="1" />
+        <argument
+            android:name="pageNumber"
+            app:argType="integer"
+            android:defaultValue="1" />
 
     </fragment>
     <fragment
