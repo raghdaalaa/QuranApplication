@@ -12,12 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranapplication.VersesModel.Translation;
 import com.example.quranapplication.VersesModel.Verse;
+import com.example.quranapplication.pojo.Chapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesViewHolder> {
     private final List<Verse> versesList = new ArrayList<>();
+
+   // DetailsFragmentArgs bundle = DetailsFragmentArgs.fromBundle(getArguments());
+
+    Chapter chapter;
+
 
     public VersesAdapter() {    }
 
@@ -39,15 +45,49 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
 
         Verse verse = versesList.get(position);
 
+
+//        if(chapter.getBismillahPre()==true){
+//            holder.basmala.setText("fghjk");
+//        }
+
         holder.ver_Name_ar.setText(verse.getTextMadani());
         holder.ver_Num.setText(verse.getVerseNumber() + "");
+
+        // get Translations of verses
         List<Translation> translations = verse.getTranslations();
         for (int i = 0; i < translations.size(); i++) {
             Translation translation = translations.get(i);
 
-            if (translation.getResourceId() == 17)
+
+
+       //     int x =Translationlanguages.Russian.getIntValue();
+            if (translation.getResourceId() == 31){
                 holder.verse_translated.setText(translation.getText());
+
+            }
+            else if (translation.getResourceId() == 33) {
+                holder.verse_translated.setText(translation.getText());
+
+            }
+            else if (translation.getResourceId() == 27) {
+                holder.verse_translated.setText(translation.getText());
+
+            }
+            else if (translation.getResourceId() == 28) {
+                holder.verse_translated.setText(translation.getText());
+
+            }
+            else if (translation.getResourceId() == 45) {
+                holder.verse_translated.setText(translation.getText());
+
+            }
+            else if (translation.getResourceId() == 17) {
+                holder.verse_translated.setText(translation.getText());
+
+            }
         }
+
+
 
 
     }
@@ -58,7 +98,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
     public class VersesViewHolder extends RecyclerView.ViewHolder {
         // viewholder دا الحاجة اللي هتشيل الفيو بتاعي
         //inflate layout items
-        TextView ver_Name_ar, ver_Num,verse_translated;
+        TextView ver_Name_ar, ver_Num,verse_translated,basmala;
         Button copy_tv, volume_tv;
 
 
@@ -69,6 +109,7 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
             verse_translated=itemView.findViewById(R.id.verse_translated);
             copy_tv = itemView.findViewById(R.id.copy_button);
             volume_tv = itemView.findViewById(R.id.volume_button);
+            basmala=itemView.findViewById(R.id.basmala);
 
 
         }

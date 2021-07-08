@@ -6,6 +6,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.language:
-                Toast.makeText(this, "language", Toast.LENGTH_SHORT).show();
+                  Toast.makeText(this, "language", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.search:
                 Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();

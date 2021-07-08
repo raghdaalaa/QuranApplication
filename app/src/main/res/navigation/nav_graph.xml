@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/languageFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.quranapplication.HomeFragment"
@@ -17,6 +17,14 @@
         <action
             android:id="@+id/action_indexsFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <argument
+            android:name="languageid"
+            app:argType="string"
+            android:defaultValue="en" />
+        <argument
+            android:name="languageisocode"
+            app:argType="integer"
+            android:defaultValue="17" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -64,7 +72,34 @@
             android:name="chapterId"
             app:argType="integer"
             android:defaultValue="1" />
+        <argument
+            android:name="languageisocode2"
+            app:argType="integer"
+            android:defaultValue="17" />
 
+    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/splash2"-->
+<!--        android:name="com.example.quranapplication.Splash2"-->
+<!--        android:label="fragment_splash2"-->
+<!--        tools:layout="@layout/fragment_splash2" >-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_splash2_to_languageFragment"-->
+<!--            app:destination="@id/languageFragment" />-->
+<!--    </fragment>-->
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.quranapplication.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" >
+        <action
+            android:id="@+id/action_languageFragment_to_indexsFragment"
+            app:destination="@id/indexsFragment" />
+
+        <!--        <action-->
+<!--            android:id="@+id/action_languageFragment_to_indexsFragment2"-->
+<!--            app:destination="@id/indexsFragment" />-->
     </fragment>
 
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/frag_language_select"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".language.languageSelect">
+    tools:context=".LanguageFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,7 +17,7 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="122dp"
                 android:layout_gravity="center"
                 android:src="@drawable/splash" />
@@ -25,10 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="Choose Language "
                 android:textColor="@color/colorText"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
         </LinearLayout>
@@ -36,17 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/l2"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_below="@+id/l1"
             android:orientation="horizontal"
             android:gravity="center">
             <Button
                 android:id="@+id/en_button"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="English"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:textAllCaps="false"
                 android:textColor="@color/whitecolor"
@@ -54,13 +54,14 @@
                 android:layout_marginRight="30dp"
                 />
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/ar_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="Arabic "
                 android:textColor="@color/whitecolor"
                 android:textAllCaps="false"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:background="@drawable/bottom_custom"/>
         </LinearLayout>
@@ -68,16 +69,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/l3"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_below="@+id/l2"
             android:orientation="horizontal"
             android:gravity="center">
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/fr_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="Frensh"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textColor="@color/whitecolor"
                 android:padding="10dp"
                 android:textAllCaps="false"
@@ -85,13 +87,14 @@
                 android:layout_marginRight="30dp"
                 />
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/gr_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="German "
                 android:textAllCaps="false"
                 android:textStyle="italic"
                 android:textColor="@color/whitecolor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:background="@drawable/bottom_custom"/>
         </LinearLayout>
@@ -99,30 +102,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/l4"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_below="@+id/l3"
             android:orientation="horizontal"
             android:gravity="center">
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/sp_button"
                 android:text="Spanish"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:textStyle="italic"
                 android:textColor="@color/whitecolor"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:textAllCaps="false"
                 android:background="@drawable/bottom_custom"
                 android:layout_marginRight="30dp"
                 />
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/ru_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="Russian "
                 android:textAllCaps="false"
                 android:textColor="@color/whitecolor"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:background="@drawable/bottom_custom"/>
         </LinearLayout>
@@ -130,18 +135,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/l5"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_below="@+id/l4"
             android:orientation="horizontal"
             android:gravity="center">
             <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/id_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
                 android:text="Indonesia "
                 android:textColor="@color/whitecolor"
                 android:textAllCaps="false"
                 android:textStyle="italic"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:padding="10dp"
                 android:background="@drawable/bottom_custom"/>
         </LinearLayout>
