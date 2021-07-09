@@ -13,7 +13,6 @@ android {
     defaultConfig {
    //  voiceSearch
         applicationId "com.ibm.watson.developer_cloud.android.myapplication"
-
         applicationId "com.example.f"
         minSdkVersion 24
         targetSdkVersion 30

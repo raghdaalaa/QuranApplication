@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+
     app:startDestination="@id/languageFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.quranapplication.HomeFragment"
@@ -98,9 +100,15 @@
             app:argType="integer"
             android:defaultValue="1" />
         <argument
+
+            android:name="pageNumber"
+            app:argType="integer"
+            android:defaultValue="1" />
+
             android:name="languageisocode2"
             app:argType="integer"
             android:defaultValue="17" />
+
 
     </fragment>
     <fragment

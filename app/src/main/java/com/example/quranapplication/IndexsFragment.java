@@ -1,3 +1,4 @@
+
 package com.example.quranapplication;
 
 import android.os.Bundle;
@@ -36,6 +37,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.quranapplication.DetailsFragment.LAST_CHAPTER_POSITION_KEY;
+import static com.example.quranapplication.DetailsFragment.LAST_PAGE_POSITION_KEY;
+import static com.example.quranapplication.DetailsFragment.LAST_POSITION_KEY_NOT_SET;
 
 
 public class IndexsFragment extends Fragment {
@@ -100,6 +106,18 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
         languageisocode=bundle.getLanguageisocode();
         setUpPostsRv();
         getAllPosts();
+      
+        SharedPreferences pref = requireActivity().getSharedPreferences("Quran", MODE_PRIVATE);
+        int lastChapterPosition = pref.getInt(LAST_CHAPTER_POSITION_KEY, LAST_POSITION_KEY_NOT_SET);
+        if (lastChapterPosition == LAST_POSITION_KEY_NOT_SET) {
+            // closed the app from index fragment
+
+        } else {
+            // get page number, and chapter and send it to details fragment
+            int lastPagePosition = pref.getInt(LAST_PAGE_POSITION_KEY, LAST_POSITION_KEY_NOT_SET);
+            // open details fragment and send data to it
+            navigateToDetails(view, lastChapterPosition, lastPagePosition);
+        }
 
     }
 
@@ -116,6 +134,13 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
 
         recyclerView.setAdapter(quranAdapter);
 
+    }
+  
+   private void navigateToDetails(View view, int chapterId, int pageNumber) {
+        ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
+        action.setChapterId(chapterId);
+        action.setPageNumber(pageNumber);
+        Navigation.findNavController(view).navigate(action);
     }
 
     private void getAllPosts() {
@@ -150,3 +175,4 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
     }
 }
   
+
