@@ -3,12 +3,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActionBar.LanguageFragment">
+    tools:context=".LanguageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:id="@+id/l1"
+            android:gravity="center">
 
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="122dp"
+                android:layout_gravity="center"
+                android:src="@drawable/splash" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Choose Language "
+                android:textColor="@color/colorText"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/l2"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/l1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/en_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="English"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/whitecolor"
+                android:background="@drawable/bottom_custom"
+                android:layout_marginRight="30dp"
+                />
+            <Button
+                android:id="@+id/ar_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Arabic "
+                android:textColor="@color/whitecolor"
+                android:textAllCaps="false"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/bottom_custom"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/l3"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/l2"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/fr_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Frensh"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:textColor="@color/whitecolor"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:background="@drawable/bottom_custom"
+                android:layout_marginRight="30dp"
+                />
+            <Button
+                android:id="@+id/gr_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="German "
+                android:textAllCaps="false"
+                android:textStyle="italic"
+                android:textColor="@color/whitecolor"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/bottom_custom"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/l4"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/l3"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/sp_button"
+                android:text="Spanish"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:textStyle="italic"
+                android:textColor="@color/whitecolor"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:background="@drawable/bottom_custom"
+                android:layout_marginRight="30dp"
+                />
+            <Button
+                android:id="@+id/ru_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Russian "
+                android:textAllCaps="false"
+                android:textColor="@color/whitecolor"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/bottom_custom"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/l5"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/l4"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/id_button"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Indonesia "
+                android:textColor="@color/whitecolor"
+                android:textAllCaps="false"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:background="@drawable/bottom_custom"/>
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>

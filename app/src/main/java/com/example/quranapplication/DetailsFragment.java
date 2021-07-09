@@ -1,6 +1,8 @@
 package com.example.quranapplication;
 
+
 import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 import static android.content.Context.MODE_PRIVATE;
 
 public class DetailsFragment extends Fragment {
@@ -37,15 +40,20 @@ public class DetailsFragment extends Fragment {
     public static final int LAST_POSITION_KEY_NOT_SET = -1;
     public static int lastPosition;
 
+
+
     RecyclerView recyclerView;
     private VersesAdapter versesAdapter;
     List<Verse> verseList = new ArrayList<>();
     VersesService versesService;
     private int chapterId;
+
     private int currentPage;
     private Meta meta;
     //save lastposition
     SharedPreferences preferences ;
+    private int languageisocode2;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +61,9 @@ public class DetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
         recyclerView = v.findViewById(R.id.surah_rv_id);
+
+
+
         return v;
     }
     @Override
@@ -60,16 +71,24 @@ public class DetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         DetailsFragmentArgs bundle = DetailsFragmentArgs.fromBundle(getArguments());
         chapterId = bundle.getChapterId();
+
         currentPage = bundle.getPageNumber();
 
         setUpPostsRv();
         getAllPosts(chapterId,currentPage);
+
+        languageisocode2 = bundle.getLanguageisocode2();
+ 
     }
     private void setUpPostsRv() {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        versesAdapter = new VersesAdapter();
+
+        
+
+        versesAdapter = new VersesAdapter(languageisocode2);
+
 
         recyclerView.setAdapter(versesAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -82,7 +101,9 @@ public class DetailsFragment extends Fragment {
                     Integer totalPages = meta.getTotalPages();
                     if (currentPage != totalPages) {
                         getAllPosts(chapterId, ++currentPage);
+
                     } }
+
 
 
             }
@@ -116,6 +137,16 @@ public class DetailsFragment extends Fragment {
             }
         };
 
-        versesService.getVerses(chapterId, pageNumber,33).enqueue(callback);
+
+        // use enum class
+    //    int x =Translationlanguages.Russian.getIntValue();
+        versesService.getVerses(chapterId, pageNumber,languageisocode2).enqueue(callback);
     }
 }
+
+// Link - > translation number + "ar, en"
+// Enum class (field = translationId -> 16, 17, 124
+// Object, EN(11)
+// Enum class = Translations
+// Translations = (EN(11), AR(12), FR, TR)
+

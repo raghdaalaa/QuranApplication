@@ -1,6 +1,6 @@
+
 package com.example.quranapplication;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,7 +51,8 @@ public class IndexsFragment extends Fragment {
     QuranAdapter quranAdapter;
     List<Chapter> quranList = new ArrayList<>();
     QuranInterface quranInterface;
-
+    private String languageid;
+    private int languageisocode;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,51 +60,53 @@ public class IndexsFragment extends Fragment {
         setHasOptionsMenu(true);
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
 
+
+
+
+
         recyclerView = v.findViewById(R.id.surah_rv_id);
-
-        // set last position = null
-
         return v;
     }
 //    actionbar
 
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull MenuInflater inflater) {
-        inflater.inflate(R.menu.actionbar_index, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
+@Override
+public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull MenuInflater inflater) {
+    inflater.inflate(R.menu.actionbar_index,menu);
+    super.onCreateOptionsMenu(menu, inflater);
+}
 
     @Override
     public boolean onOptionsItemSelected(@NonNull @NotNull MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.about_app) {
+        if(id== R.id.about_app){
             NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_indexsFragment_to_aboutAppFragment);
-        }
-        if (id == R.id.share_app) {
+            navController.navigate(R.id.action_indexsFragment_to_aboutAppFragment);}
+        if(id== R.id.share_app){
             NavController navController = NavHostFragment.findNavController(this);
             navController.navigate(R.id.action_indexsFragment_to_shareAppFragment);
         }
-        if (id == R.id.language) {
+        if(id== R.id.language){
             NavController navController = NavHostFragment.findNavController(this);
             navController.navigate(R.id.action_indexsFragment_to_languageFragment);
         }
-        if (id == R.id.search) {
+        if(id== R.id.search) {
             NavController navController = NavHostFragment.findNavController(this);
             navController.navigate(R.id.action_indexsFragment_to_searchFragment);
-        }
-        return super.onOptionsItemSelected(item);
+        } return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // get chapter translation from language fragment
+        IndexsFragmentArgs bundle = IndexsFragmentArgs.fromBundle(getArguments());
+        languageid = bundle.getLanguageid();
+        languageisocode=bundle.getLanguageisocode();
         setUpPostsRv();
         getAllPosts();
-
+      
         SharedPreferences pref = requireActivity().getSharedPreferences("Quran", MODE_PRIVATE);
         int lastChapterPosition = pref.getInt(LAST_CHAPTER_POSITION_KEY, LAST_POSITION_KEY_NOT_SET);
         if (lastChapterPosition == LAST_POSITION_KEY_NOT_SET) {
@@ -113,16 +118,25 @@ public class IndexsFragment extends Fragment {
             // open details fragment and send data to it
             navigateToDetails(view, lastChapterPosition, lastPagePosition);
         }
+
     }
 
     private void setUpPostsRv() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        quranAdapter = new QuranAdapter(quranList, getContext(), (view, chapterId) -> navigateToDetails(view, chapterId, 1));
-        recyclerView.setAdapter(quranAdapter);
-    }
 
-    private void navigateToDetails(View view, int chapterId, int pageNumber) {
+        quranAdapter = new QuranAdapter(quranList, getContext(), (view, chapterId) -> {
+            ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
+            action.setChapterId(chapterId);
+            action.setLanguageisocode2(languageisocode);
+            Navigation.findNavController(view).navigate(action);
+        });
+
+        recyclerView.setAdapter(quranAdapter);
+
+    }
+  
+   private void navigateToDetails(View view, int chapterId, int pageNumber) {
         ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
         action.setChapterId(chapterId);
         action.setPageNumber(pageNumber);
@@ -131,7 +145,11 @@ public class IndexsFragment extends Fragment {
 
     private void getAllPosts() {
         quranInterface = QuranClient.getRetrofit().create(QuranInterface.class);
-        Call<QuranModel> call = quranInterface.getQuran("fr");
+
+        // use enum class
+     //   String string = Translationlanguages.Russian.toString();
+        Call<QuranModel> call = quranInterface.getQuran(languageid);
+
         call.enqueue(new Callback<QuranModel>() {
             @Override
             public void onResponse(Call<QuranModel> call, Response<QuranModel> response) {
@@ -156,3 +174,5 @@ public class IndexsFragment extends Fragment {
         });
     }
 }
+  
+
