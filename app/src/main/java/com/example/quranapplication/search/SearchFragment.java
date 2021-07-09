@@ -1,6 +1,8 @@
 package com.example.quranapplication.search;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quranapplication.R;
 
 import org.jetbrains.annotations.NotNull;
+import org.jsoup.Jsoup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +32,8 @@ import java.util.stream.Collectors;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static org.jsoup.nodes.Document.OutputSettings.Syntax.html;
 
 
 public class SearchFragment extends Fragment {
@@ -41,7 +48,7 @@ public class SearchFragment extends Fragment {
     Search search;
     private String quary;
     List<Result> collect;
-    List<Result> results;
+    List<Result> resultsList;
 
 
     @Override
@@ -77,16 +84,28 @@ public class SearchFragment extends Fragment {
     public void getAllResult(int page) {
         searchInterface = SearchClient.getRetrofit().create(SearchInterface.class);
         Callback<Search> callback = new Callback<Search>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(@NotNull Call<Search> call,
                                    @NotNull Response<Search> response) {
                 resultList.clear();
 
                 search = Objects.requireNonNull(response.body());
-               results = response.body().getResults();
+               resultsList = response.body().getResults();
                 //                    filteration start
-               collect = results.stream().filter(s -> s.getText().contains(quary)).collect(Collectors.toList());
-                searchAdapter.addResult(results);
+                // string -> string -> string -> String -> ABC -> A -> C -> ""
+                // filter length> 2
+                // stream
+                // collect ->
+
+                collect = resultsList
+                       .stream()
+//                        .map(s -> s.getTranslations().get(0))
+//                        .map(translation -> translation.getText())
+//                        .map(s -> Jsoup.parse(s).text())
+                        .filter(s -> containsQuery(s))
+                        .collect(Collectors.toList());
+                searchAdapter.addResult(collect);
                 total_results.setText("TotalResult = "+search.getTotalResults());
             }
             @Override
@@ -100,6 +119,12 @@ public class SearchFragment extends Fragment {
         quary = search_et.getText().toString();
         searchInterface.getResultOfSearch(quary, "en").enqueue(callback);
 
+    }
+
+    private boolean containsQuery(Result s) {
+        String translation = s.getTranslations().get(0).getText();
+        String textOnly = Jsoup.parse(translation).text();
+        return textOnly.contains(quary);
     }
     //_____________________________________________________________________________/
 
