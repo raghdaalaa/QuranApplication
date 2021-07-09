@@ -22,6 +22,18 @@ public class Verse {
 
     private List<Translation> translations = null;
 
+    @SerializedName("text_indopak")
+
+    private String textIndopak;
+
+    public String getTextIndopak() {
+        return textIndopak;
+    }
+
+    public void setTextIndopak(String textIndopak) {
+        this.textIndopak = textIndopak;
+    }
+
     public Integer getId() {
         return id;
     }

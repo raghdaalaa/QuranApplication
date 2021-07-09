@@ -104,7 +104,7 @@
             android:name="pageNumber"
             app:argType="integer"
             android:defaultValue="1" />
-
+        <argument
             android:name="languageisocode2"
             app:argType="integer"
             android:defaultValue="17" />

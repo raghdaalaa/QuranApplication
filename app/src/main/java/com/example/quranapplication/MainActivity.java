@@ -37,46 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // ---------------Action bar ----------------------------------//
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-
-        switch (item.getItemId()) {
-            case R.id.lastreadFragment:
-                Toast.makeText(this, "last read", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.book_mark:
-                Toast.makeText(this, "book mark", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.share_app:
-                Toast.makeText(this, "share app ", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.about_app:
-                Toast.makeText(this, "about app", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.language:
-                  Toast.makeText(this, "language", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.search:
-                Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 }
 
 

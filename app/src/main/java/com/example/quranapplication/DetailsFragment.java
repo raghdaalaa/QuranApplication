@@ -52,7 +52,7 @@ public class DetailsFragment extends Fragment {
     private Meta meta;
     //save lastposition
     SharedPreferences preferences ;
-    private int languageisocode2;
+    private int languageisocode3;
 
 
     @Override
@@ -77,7 +77,7 @@ public class DetailsFragment extends Fragment {
         setUpPostsRv();
         getAllPosts(chapterId,currentPage);
 
-        languageisocode2 = bundle.getLanguageisocode2();
+        languageisocode3 = bundle.getLanguageisocode2();
  
     }
     private void setUpPostsRv() {
@@ -87,7 +87,7 @@ public class DetailsFragment extends Fragment {
 
         
 
-        versesAdapter = new VersesAdapter(languageisocode2);
+        versesAdapter = new VersesAdapter(languageisocode3);
 
 
         recyclerView.setAdapter(versesAdapter);
@@ -140,7 +140,7 @@ public class DetailsFragment extends Fragment {
 
         // use enum class
     //    int x =Translationlanguages.Russian.getIntValue();
-        versesService.getVerses(chapterId, pageNumber,languageisocode2).enqueue(callback);
+        versesService.getVerses(chapterId, pageNumber,languageisocode3).enqueue(callback);
     }
 }
 
