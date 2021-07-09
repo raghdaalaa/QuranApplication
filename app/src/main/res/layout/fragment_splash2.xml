@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Splash2"
+    android:background="@color/whitecolor"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/quran"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/splash"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/titl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AL_Quran"
+        android:textSize="40sp"
+        app:layout_constraintTop_toBottomOf="@id/quran"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorText" />
+    <TextView
+        android:id="@+id/titl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For all muslims"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/titl1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

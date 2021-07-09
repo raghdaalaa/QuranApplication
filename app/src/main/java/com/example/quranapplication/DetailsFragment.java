@@ -36,6 +36,7 @@ public class DetailsFragment extends Fragment {
     private int chapterId;
     private int currentPage = 1;
     private Meta meta;
+    private int languageisocode2;
 
 
     @Override
@@ -52,6 +53,7 @@ public class DetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         DetailsFragmentArgs bundle = DetailsFragmentArgs.fromBundle(getArguments());
         chapterId = bundle.getChapterId();
+        languageisocode2 = bundle.getLanguageisocode2();
         setUpPostsRv();
         getAllPosts(chapterId, 1);
     }
@@ -59,7 +61,7 @@ public class DetailsFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        versesAdapter = new VersesAdapter();
+        versesAdapter = new VersesAdapter(languageisocode2);
 
         recyclerView.setAdapter(versesAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -79,7 +81,7 @@ public class DetailsFragment extends Fragment {
         });
     }
 
-    private void getAllPosts(int chapterId, int pageNumber) {
+    private void getAllPosts(int chapterId, int pageNumber ) {
 
         versesService = VersesClient.getRetrofit().create(VersesService.class);
 
@@ -98,7 +100,9 @@ public class DetailsFragment extends Fragment {
             }
         };
 
-        versesService.getVerses(chapterId, pageNumber,17).enqueue(callback);
+        // use enum class
+    //    int x =Translationlanguages.Russian.getIntValue();
+        versesService.getVerses(chapterId, pageNumber,languageisocode2).enqueue(callback);
     }
 }
 
