@@ -62,4 +62,13 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+
+    <declare-styleable name="ds">
+        <attr name="background_color" format="color"/>
+        <attr name="text_color" format="color"/>
+        <attr name="button_color" format="color"/>
+    </declare-styleable>
+
+
 </resources>

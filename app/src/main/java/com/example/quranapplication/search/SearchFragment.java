@@ -28,7 +28,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class SearchFragment extends Fragment {
     Button search_bt;
     EditText search_et;
@@ -41,8 +40,6 @@ public class SearchFragment extends Fragment {
     Search search;
     private String quary;
     List<Result> collect;
-    List<Result> results;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,14 +78,15 @@ public class SearchFragment extends Fragment {
             public void onResponse(@NotNull Call<Search> call,
                                    @NotNull Response<Search> response) {
                 resultList.clear();
-
                 search = Objects.requireNonNull(response.body());
-               results = response.body().getResults();
+               resultList = response.body().getResults();
                 //                    filteration start
-               collect = results.stream().filter(s -> s.getText().contains(quary)).collect(Collectors.toList());
-                searchAdapter.addResult(results);
+                collect = resultList.stream().filter(s -> s.getText().contains(quary)).collect(Collectors.toList());
+
+                searchAdapter.addResult(resultList);
                 total_results.setText("TotalResult = "+search.getTotalResults());
             }
+
             @Override
             public void onFailure(Call<Search> call, Throwable t) {
                 call.cancel();
@@ -101,6 +99,7 @@ public class SearchFragment extends Fragment {
         searchInterface.getResultOfSearch(quary, "en").enqueue(callback);
 
     }
+
     //_____________________________________________________________________________/
 
     private void setUpRecyclerView() {
@@ -124,4 +123,5 @@ public class SearchFragment extends Fragment {
             }
         });
     }
+
 }
