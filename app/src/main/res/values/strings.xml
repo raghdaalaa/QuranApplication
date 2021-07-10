@@ -38,4 +38,15 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="theme_preferences_key">theme_preferences_key</string>
+
+    <string name="dark_theme_preference_value">Dark</string>
+    <string name="light_theme_preference_value">Light</string>
+    <string name="system_theme_preference_value">Follow System</string>
+
+    <string name="dark_theme_description">Dark mode</string>
+    <string name="light_theme_description">Light mode</string>
+    <string name="system_theme_description">System default</string>
+
 </resources>

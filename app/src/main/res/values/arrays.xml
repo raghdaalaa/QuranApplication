@@ -65,10 +65,19 @@
 
 
     <declare-styleable name="ds">
-        <attr name="background_color" format="color"/>
-        <attr name="text_color" format="color"/>
-        <attr name="button_color" format="color"/>
+        <attr name="background_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="button_color" format="color" />
     </declare-styleable>
 
-
+    <string-array name="themes_entries">
+        <item>Dark</item>
+        <item>Light</item>
+        <item>System default</item>
+    </string-array>
+    <string-array name="themes_values">
+        <item>@string/dark_theme_preference_value</item>
+        <item>@string/light_theme_preference_value</item>
+        <item>@string/system_theme_preference_value</item>
+    </string-array>
 </resources>

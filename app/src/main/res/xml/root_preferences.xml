@@ -73,11 +73,12 @@
 
             />
 
-        <SwitchPreference
-            app:summary="Enable full screen (without notification_bar)"
-            app:key="night_mood"
-            app:title="Night Mood"
-            app:defaultValue="false"/>
+        <ListPreference
+            app:entries="@array/themes_entries"
+            app:entryValues="@array/themes_values"
+            app:key="@string/theme_preferences_key"
+            app:defaultValue="@string/system_theme_preference_value"
+            app:title="Theme" />
 
     </PreferenceCategory>
 
