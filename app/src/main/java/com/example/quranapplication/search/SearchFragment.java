@@ -54,18 +54,15 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_search, container, false);
         search_bt = v.findViewById(R.id.search_bt);
         total_results = v.findViewById(R.id.total_results);
         search_et = v.findViewById(R.id.search_et);
         recyclerView = v.findViewById(R.id.recyclerview);
         search = new Search();
-
         return v;
 
     }
-
     @Override
     public void onViewCreated(@NonNull @NotNull View view,
                               @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -92,17 +89,10 @@ public class SearchFragment extends Fragment {
 
                 search = Objects.requireNonNull(response.body());
                resultsList = response.body().getResults();
-                //                    filteration start
-                // string -> string -> string -> String -> ABC -> A -> C -> ""
-                // filter length> 2
-                // stream
-                // collect ->
 
                 collect = resultsList
                        .stream()
-//                        .map(s -> s.getTranslations().get(0))
-//                        .map(translation -> translation.getText())
-//                        .map(s -> Jsoup.parse(s).text())
+
                         .filter(s -> containsQuery(s))
                         .collect(Collectors.toList());
                 searchAdapter.addResult(collect);
@@ -112,9 +102,7 @@ public class SearchFragment extends Fragment {
             public void onFailure(Call<Search> call, Throwable t) {
                 call.cancel();
                 Toast.makeText(getContext(), "Failed:" + t.getMessage(), Toast.LENGTH_LONG).show();
-
             }
-
         };
         quary = search_et.getText().toString();
         searchInterface.getResultOfSearch(quary, "en").enqueue(callback);

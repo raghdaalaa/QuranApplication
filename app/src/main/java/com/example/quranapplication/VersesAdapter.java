@@ -72,29 +72,29 @@ public class VersesAdapter extends RecyclerView.Adapter<VersesAdapter.VersesView
         public void bind(Verse verse) {
 
             if (verse.getTextMadani().isEmpty()) {
-                // set text indopak
-                // todo plz get me from model; you can remove illegal chars https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
-
                 ver_Name_ar.setText(verse.getTextIndopak());
             } else {
                 ver_Name_ar.setText(verse.getTextMadani());
             }
             ver_Num.setText(verse.getVerseNumber() + "");
 
-            boolean translationFound = false;
-            List<Translation> translations = verse.getTranslations();
-            for (int i = 0; i < translations.size(); i++) {
-                Translation translation = translations.get(i);
-                if (translation.getResourceId() == selectedLanguage){
-                    translationFound = true;
-                    verse_translated.setText(translation.getText());
+            if(selectedLanguage == 3){
+                verse_translated.setText("");
+            }
+            else {
+
+                //  boolean translationFound = true;
+                List<Translation> translations = verse.getTranslations();
+                for (int i = 0; i < translations.size(); i++) {
+                    Translation translation = translations.get(i);
+
+                    if (translation.getResourceId() == selectedLanguage){
+                        //    translationFound = true;
+                        verse_translated.setText(translation.getText());
+                    }
+
                 }
             }
-
-            if (! translationFound){
-                // todo translation not found plz add a default language
-            }
-
 
         }
     }

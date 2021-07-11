@@ -14,23 +14,23 @@
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_splash_screen);
 //
-//        // splash screen
-////Thread thread =new Thread(){
+//        //  splash screen
+////        Thread thread = new Thread() {
 ////
-////    @Override
-////    public void run() {
-////        try {
-////            sleep(3000);
-////            Intent intent=new Intent(SplashScreen.this,MainActivity.class);
-////             startActivity(intent);
-////            finish();
-////        }catch (InterruptedException e){
-////            e.printStackTrace();
-////        }
+////            @Override
+////            public void run() {
+////                try {
+////                    sleep(3000);
+////                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+////                    startActivity(intent);
+////                    finish();
+////                } catch (InterruptedException e) {
+////                    e.printStackTrace();
+////                }
+////            }
+////        };
+////        thread.start();
+//////
 ////    }
-////};
-////thread.start();
-////
-//   }
 //}
 //

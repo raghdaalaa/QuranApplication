@@ -83,10 +83,6 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
         if(id== R.id.about_app){
             NavController navController = NavHostFragment.findNavController(this);
             navController.navigate(R.id.action_indexsFragment_to_aboutAppFragment);}
-        if(id== R.id.share_app){
-            NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_indexsFragment_to_shareAppFragment);
-        }
         if(id== R.id.language){
             NavController navController = NavHostFragment.findNavController(this);
             navController.navigate(R.id.action_indexsFragment_to_languageFragment);
