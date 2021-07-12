@@ -13,13 +13,16 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
     Context context;
     OnChapterClick onChapterClick;
     //recyclerview listeners
+    private final String languageid;
+
     public interface OnChapterClick {
         void onItemClick(View view, int chapterId);
     }
-    public QuranAdapter(List<Chapter> quranList, Context context, OnChapterClick onChapterClick) {
+    public QuranAdapter(List<Chapter> quranList, Context context,String languageid, OnChapterClick onChapterClick) {
         QuranList = quranList;
         this.context = context;
         this.onChapterClick = onChapterClick;
+        this.languageid=languageid;
     }
     @NonNull
     @Override
@@ -36,7 +39,15 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.QuranViewHol
 
         holder.nameArabic_Tv.setText(chapter.getNameArabic());
         holder.chapterNumber_tv.setText(chapter.getChapterNumber() + "");
-        holder.nameTranslated_Tv.setText(chapter.getTranslatedName().getName());
+
+        // arabic chapters without translations
+        if(languageid== "ar"){
+            holder.nameTranslated_Tv.setText("");
+        }
+        else {
+            holder.nameTranslated_Tv.setText(chapter.getTranslatedName().getName());
+        }
+
         holder.versesCount.setText(chapter.getVersesCount() + "");
 
 

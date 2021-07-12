@@ -107,7 +107,7 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
 
-        quranAdapter = new QuranAdapter(quranList, getContext(), (view, chapterId) -> {
+        quranAdapter = new QuranAdapter(quranList, getContext(),languageid ,(view, chapterId) -> {
             ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
             action.setChapterId(chapterId);
             action.setLanguageisocode2(languageisocode);
