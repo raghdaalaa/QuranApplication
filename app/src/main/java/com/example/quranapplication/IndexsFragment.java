@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,13 +45,18 @@ public class IndexsFragment extends Fragment {
     QuranAdapter quranAdapter;
     List<Chapter> quranList = new ArrayList<>();
     QuranInterface quranInterface;
-
+    private String languageid;
+    private int languageisocode;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View v = inflater.inflate(R.layout.fragment_indexs, container, false);
+
+
+
+
 
         recyclerView = v.findViewById(R.id.surah_rv_id);
         return v;
@@ -83,12 +90,17 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
         } return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // get chapter translation from language fragment
+        IndexsFragmentArgs bundle = IndexsFragmentArgs.fromBundle(getArguments());
+        languageid = bundle.getLanguageid();
+        languageisocode=bundle.getLanguageisocode();
         setUpPostsRv();
         getAllPosts();
+
     }
 
     private void setUpPostsRv() {
@@ -98,6 +110,7 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
         quranAdapter = new QuranAdapter(quranList, getContext(), (view, chapterId) -> {
             ActionIndexsFragmentToDetailsFragment action = IndexsFragmentDirections.actionIndexsFragmentToDetailsFragment();
             action.setChapterId(chapterId);
+            action.setLanguageisocode2(languageisocode);
             Navigation.findNavController(view).navigate(action);
         });
 
@@ -107,7 +120,11 @@ public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull M
 
     private void getAllPosts() {
         quranInterface = QuranClient.getRetrofit().create(QuranInterface.class);
-        Call<QuranModel> call = quranInterface.getQuran("fr");
+
+        // use enum class
+     //   String string = Translationlanguages.Russian.toString();
+        Call<QuranModel> call = quranInterface.getQuran(languageid);
+
         call.enqueue(new Callback<QuranModel>() {
             @Override
             public void onResponse(Call<QuranModel> call, Response<QuranModel> response) {
