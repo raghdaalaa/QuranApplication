@@ -1,9 +1,8 @@
-<PreferenceScreen
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?attr/background_color">
 
     <PreferenceCategory app:title="Content">
-
         <ListPreference
             app:defaultValue="false"
             app:entries="@array/language_name"
@@ -12,12 +11,6 @@
             app:title="Language">
 
         </ListPreference>
-
-
-        <Preference
-            app:key="search"
-            app:title="Search"></Preference>
-
 
     </PreferenceCategory>
 
@@ -28,7 +21,6 @@
             app:entryValues="@array/font_size_values"
             app:key="arabic_font_size"
             app:title="Font Size">
-
         </ListPreference>
 
         <ListPreference
@@ -39,6 +31,7 @@
             app:title="Font Style">
 
         </ListPreference>
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Translation">
@@ -56,7 +49,7 @@
             app:entries="@array/font_style_name"
             app:entryValues="@array/font_style_values"
             app:key="translation_font_style"
-            app:title="Translation Font Style"></ListPreference>
+            app:title="Translation Font Style"/>
 
     </PreferenceCategory>
 
@@ -80,22 +73,15 @@
 
             />
 
-        <SwitchPreference
-            app:key="night_mood"
-            app:title="Night Mood" />
+        <ListPreference
+            app:entries="@array/themes_entries"
+            app:entryValues="@array/themes_values"
+            app:key="@string/theme_preferences_key"
+            app:defaultValue="@string/system_theme_preference_value"
+            app:title="Theme" />
 
     </PreferenceCategory>
 
-
-    <PreferenceCategory app:title="other">
-
-        <Preference
-            app:key="share_app"
-            app:title="Share this App"></Preference>
-
-
-
-    </PreferenceCategory>
-
+    <PreferenceCategory app:title="other"/>
 
 </PreferenceScreen>

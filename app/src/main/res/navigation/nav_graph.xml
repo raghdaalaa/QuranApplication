@@ -44,18 +44,13 @@
             app:destination="@id/shareAppFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.quranapplication.settingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
         android:id="@+id/lastreadFragment"
         android:name="com.example.quranapplication.ActionBar.LastReadFragment"
         android:label="fragment_last_read"
         tools:layout="@layout/fragment_last_read" />
     <fragment
         android:id="@+id/settingsFragment2"
-        android:name="com.example.quranapplication.SettingsFragment2"
+        android:name="com.example.quranapplication.settings.SettingsFragment"
         android:label="SettingsFragment2" />
     <fragment
         android:id="@+id/konoz"
