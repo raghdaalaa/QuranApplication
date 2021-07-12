@@ -2,7 +2,6 @@ package com.example.quranapplication.search;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,13 +25,12 @@ import org.jsoup.Jsoup;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static org.jsoup.nodes.Document.OutputSettings.Syntax.html;
 
 
 public class SearchFragment extends Fragment {
@@ -44,12 +41,11 @@ public class SearchFragment extends Fragment {
     SearchAdapter searchAdapter;
     List<Result> resultList = new ArrayList<>();
     SearchInterface searchInterface;
-    private int currentPage = 1;
     Search search;
-    private String quary;
-    List<Result> collect;
     List<Result> resultsList;
-
+    private int currentPage = 1;
+    private String searchQuery;
+    private @NonNull String languageid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,16 +66,18 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view,
                               @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setUpRecyclerView();
+                SearchFragmentArgs bundle = SearchFragmentArgs.fromBundle(getArguments());
+        languageid = bundle.getLanguageid();
+           setUpRecyclerView();
         search_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                checkMatching(search.getQuery());
-                getAllResult(1);
-
+                currentPage = 1;
+                getAllResult(currentPage);
             }
         });
     }
+
     //_____________________________________________________________________________/
     public void getAllResult(int page) {
         searchInterface = SearchClient.getRetrofit().create(SearchInterface.class);
@@ -91,23 +89,13 @@ public class SearchFragment extends Fragment {
                 resultList.clear();
 
                 search = Objects.requireNonNull(response.body());
-               resultsList = response.body().getResults();
-                //                    filteration start
-                // string -> string -> string -> String -> ABC -> A -> C -> ""
-                // filter length> 2
-                // stream
-                // collect ->
+                resultsList = response.body().getResults();
 
-                collect = resultsList
-                       .stream()
-//                        .map(s -> s.getTranslations().get(0))
-//                        .map(translation -> translation.getText())
-//                        .map(s -> Jsoup.parse(s).text())
-                        .filter(s -> containsQuery(s))
-                        .collect(Collectors.toList());
-                searchAdapter.addResult(collect);
-                total_results.setText("TotalResult = "+search.getTotalResults());
+                searchAdapter.addResult(resultsList);
+                total_results.setText(String.format("TotalResult = %d", resultsList.size()));
+
             }
+
             @Override
             public void onFailure(Call<Search> call, Throwable t) {
                 call.cancel();
@@ -116,21 +104,32 @@ public class SearchFragment extends Fragment {
             }
 
         };
-        quary = search_et.getText().toString();
-        searchInterface.getResultOfSearch(quary, "en").enqueue(callback);
+        searchQuery = search_et.getText().toString();
+        searchInterface.getResultOfSearch(searchQuery, languageid, page).enqueue(callback);
 
     }
 
     private boolean containsQuery(Result s) {
-        String translation = s.getTranslations().get(0).getText();
-        String textOnly = Jsoup.parse(translation).text();
-        return textOnly.contains(quary);
+        Optional<Translation> first = s.getTranslations().stream().findFirst();
+        boolean translationFound = false;
+        if (first.isPresent()) {
+            translationFound = isMatchFound(first.get().getText());
+        }
+
+        return translationFound;
+
     }
+
+    private boolean isMatchFound(String text) {
+        String textOnly = Jsoup.parse(text).text();
+        return textOnly.toLowerCase().contains(searchQuery.toLowerCase());
+    }
+
     //_____________________________________________________________________________/
 
     private void setUpRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL));
         searchAdapter = new SearchAdapter();
         recyclerView.setAdapter(searchAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
