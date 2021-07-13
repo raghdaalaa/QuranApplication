@@ -75,16 +75,6 @@ public class IndexsFragment extends Fragment {
             navController.navigate(R.id.action_indexsFragment_to_aboutAppFragment);
             return true;
         }
-        else if (id == R.id.share_app) {
-            NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_indexsFragment_to_shareAppFragment);
-            return true;
-        }
-        else if (id == R.id.language) {
-            NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_indexsFragment_to_languageFragment);
-            return true;
-        }
         else if (id == R.id.search) {
             NavController navController = NavHostFragment.findNavController(this);
             ActionIndexsFragmentToSearchFragment searchFragment = actionIndexsFragmentToSearchFragment();

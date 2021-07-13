@@ -5,10 +5,25 @@
     android:layout_height="match_parent"
     tools:context=".ActionBar.AboutAppFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+ <com.google.android.material.card.MaterialCardView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     >
+
     <TextView
+        android:background="@drawable/emptyback"
+        android:id="@+id/about_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="15dp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:text="Quran For All Muslims ...   An application that displays the Qur'an in more than one language other than Arabic.
+ The main purpose of the application is to help non-Arab users read the Qur'an. Each user is provided with a copy of the Qur'an in Arabic and another in his native language so that he does not have difficulty reading the verses of the Qur'an.
+The app has been equipped with voice and text search features to make it easier to find verses to read.
+When downloading and opening the app, you can easily copy the Qur'an in your native language and get some services such as keep favorite verses and Read daily important Doaa .
+" />
+
+ </com.google.android.material.card.MaterialCardView>
 
 </FrameLayout>

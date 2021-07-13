@@ -2,56 +2,56 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="?attr/background_color">
 
-    <PreferenceCategory app:title="Content">
-        <ListPreference
-            app:defaultValue="false"
-            app:entries="@array/language_name"
-            app:entryValues="@array/language_values"
-            app:key="choose_language"
-            app:title="Language">
+<!--    <PreferenceCategory app:title="Content">-->
+<!--        <ListPreference-->
+<!--            app:defaultValue="false"-->
+<!--            app:entries="@array/language_name"-->
+<!--            app:entryValues="@array/language_values"-->
+<!--            app:key="choose_language"-->
+<!--            app:title="Language">-->
 
-        </ListPreference>
+<!--        </ListPreference>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
-    <PreferenceCategory app:title="Arabic">
-        <ListPreference
-            app:defaultValue="false"
-            app:entries="@array/font_size_name"
-            app:entryValues="@array/font_size_values"
-            app:key="arabic_font_size"
-            app:title="Font Size">
-        </ListPreference>
+<!--    <PreferenceCategory app:title="Arabic">-->
+<!--        <ListPreference-->
+<!--            app:defaultValue="false"-->
+<!--            app:entries="@array/font_size_name"-->
+<!--            app:entryValues="@array/font_size_values"-->
+<!--            app:key="arabic_font_size"-->
+<!--            app:title="Font Size">-->
+<!--        </ListPreference>-->
 
-        <ListPreference
-            app:defaultValue="false"
-            app:entries="@array/font_style_name"
-            app:entryValues="@array/font_style_values"
-            app:key="arabic_font_style"
-            app:title="Font Style">
+<!--        <ListPreference-->
+<!--            app:defaultValue="false"-->
+<!--            app:entries="@array/font_style_name"-->
+<!--            app:entryValues="@array/font_style_values"-->
+<!--            app:key="arabic_font_style"-->
+<!--            app:title="Font Style">-->
 
-        </ListPreference>
+<!--        </ListPreference>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
-    <PreferenceCategory app:title="Translation">
-        <ListPreference
-            app:defaultValue="false"
-            app:entries="@array/font_size_name"
-            app:entryValues="@array/font_size_values"
-            app:key="translation_font_size"
-            app:title="Translation Font Size">
+<!--    <PreferenceCategory app:title="Translation">-->
+<!--        <ListPreference-->
+<!--            app:defaultValue="false"-->
+<!--            app:entries="@array/font_size_name"-->
+<!--            app:entryValues="@array/font_size_values"-->
+<!--            app:key="translation_font_size"-->
+<!--            app:title="Translation Font Size">-->
 
-        </ListPreference>
+<!--        </ListPreference>-->
 
-        <ListPreference
-            app:defaultValue="false"
-            app:entries="@array/font_style_name"
-            app:entryValues="@array/font_style_values"
-            app:key="translation_font_style"
-            app:title="Translation Font Style"/>
+<!--        <ListPreference-->
+<!--            app:defaultValue="false"-->
+<!--            app:entries="@array/font_style_name"-->
+<!--            app:entryValues="@array/font_style_values"-->
+<!--            app:key="translation_font_style"-->
+<!--            app:title="Translation Font Style"/>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
 
     <PreferenceCategory app:title="General">
@@ -82,6 +82,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="other"/>
+
 
 </PreferenceScreen>

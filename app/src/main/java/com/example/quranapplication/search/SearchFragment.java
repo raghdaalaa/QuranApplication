@@ -61,7 +61,7 @@ public class SearchFragment extends Fragment {
     ImageButton mic ;
     protected static final int RESULT_SPEECH=1 ;
     // link voice with language
-  //  private String languageid;
+   //  String languageid;
 
 
     @Override
@@ -85,7 +85,7 @@ public class SearchFragment extends Fragment {
 
                 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "id");
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, languageid);
 
 
                 try {
@@ -143,6 +143,7 @@ public class SearchFragment extends Fragment {
             public void onFailure(Call<Search> call, Throwable t) {
                 call.cancel();
                 Toast.makeText(getContext(), "Failed:" + t.getMessage(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(getContext(), "No Result Matched", Toast.LENGTH_LONG).show();
 
             }
 
@@ -173,7 +174,7 @@ public class SearchFragment extends Fragment {
     private void setUpRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
        // recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL));
-        searchAdapter = new SearchAdapter();
+        searchAdapter = new SearchAdapter(languageid);
         recyclerView.setAdapter(searchAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

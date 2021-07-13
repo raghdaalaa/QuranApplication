@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private final List<Result> resultSearch = new ArrayList<>();
-   // private final String languageid;
+    public final String languageid;
 
 
 //    public void addVerses(List<Verse> versesList) {
@@ -30,8 +30,8 @@ public class SearchAdapter  extends RecyclerView.Adapter<SearchAdapter.SearchVie
         notifyDataSetChanged();
     }
 
-    public SearchAdapter() {
-  //this.languageid=languageid;
+    public SearchAdapter(String languageid) {
+  this.languageid=languageid;
     }
 
     @NonNull

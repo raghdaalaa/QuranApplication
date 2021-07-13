@@ -6,15 +6,8 @@
     <item android:id="@+id/about_app"
         android:title="About App"
         app:showAsAction="never"/>
-    <item android:id="@+id/share_app"
-        android:title="Share App"
-        app:showAsAction="never"/>
     <item android:id="@+id/search"
         android:title="Search"
         app:showAsAction="always"
         android:icon="@drawable/ic_search_black_24dp"/>
-    <item android:id="@+id/language"
-        android:title="Language"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_language_black_24dp"/>
 </menu>
