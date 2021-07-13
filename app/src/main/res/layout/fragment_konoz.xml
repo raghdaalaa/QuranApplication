@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:context=".Konoz">
 
     <ImageView
         android:id="@+id/card_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_width="386dp"
+        android:layout_height="310dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/sunnah"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/card_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="415dp"
+        android:layout_height="721dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="136dp"
         android:scaleType="fitCenter"
         android:src="@drawable/doaa"
         app:layout_constraintStart_toStartOf="parent"

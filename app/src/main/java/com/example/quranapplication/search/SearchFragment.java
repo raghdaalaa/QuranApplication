@@ -135,7 +135,7 @@ public class SearchFragment extends Fragment {
                 resultsList = response.body().getResults();
 
                 searchAdapter.addResult(resultsList);
-                total_results.setText(String.format("TotalResult = %d", resultsList.size()));
+                total_results.setText("TotalResult = "+search.getTotalResults());
 
             }
 
@@ -172,7 +172,7 @@ public class SearchFragment extends Fragment {
 
     private void setUpRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL));
+       // recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL));
         searchAdapter = new SearchAdapter();
         recyclerView.setAdapter(searchAdapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {

@@ -28,7 +28,7 @@
                 android:textStyle="bold"
                 android:padding="10dp"
                 android:text="بسم الله الرحمن الرحيم"
-                android:textSize="25dp"
+                android:textSize="17dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="in the name of allah, the all merciful ,the "
-                android:textSize="25dp"
+                android:textSize="17dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_searchArabic" />
 
