@@ -3,71 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/nameArabic_Tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="الفلق"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="#000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/chapterNumber_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/chapterNumber_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="113"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="#000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/nameArabic_Tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nameArabic_Tv" />
-
-
-
-
-    <TextView
-        android:id="@+id/nameTranslated_Tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="nameTranslated"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="#000"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/chapters_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/chapterNumber_tv"
-        app:layout_constraintStart_toStartOf="@id/nameArabic_Tv"
-        app:layout_constraintTop_toBottomOf="@id/nameArabic_Tv" />
-
-    <TextView
-        android:id="@+id/versesCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="5"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="#000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/nameTranslated_Tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nameTranslated_Tv" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/nameArabic_Tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="الفاتحه"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textSize="19sp"
+                android:fontFamily="serif-monospace"
+                android:textStyle="bold|normal"
+                app:layout_constraintEnd_toStartOf="@id/chapterNumber_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/chapterNumber_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/nameArabic_Tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/nameArabic_Tv" />
+
+
+
+
+            <TextView
+                android:id="@+id/nameTranslated_Tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="16dp"
+                android:text="Al_fatiha"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/chapterNumber_tv"
+                app:layout_constraintStart_toStartOf="@id/nameArabic_Tv"
+                app:layout_constraintTop_toBottomOf="@id/nameArabic_Tv" />
+
+            <TextView
+                android:id="@+id/versesCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="27dp"
+                android:text="7"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginBottom="10dp"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/nameTranslated_Tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/nameTranslated_Tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

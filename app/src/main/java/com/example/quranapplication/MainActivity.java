@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         // bottom navigation
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setItemIconTintList(null);//for coloring the icons
+        // bottomNavigationView.setItemIconTintList(null);//for coloring the icons
         NavController controller = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, controller);
 
@@ -39,10 +39,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
-
-
-
-
-
-

@@ -102,7 +102,14 @@
         android:id="@+id/searchFragment"
         android:name="com.example.quranapplication.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+<!--        <argument-->
+<!--            android:name="languageid"-->
+<!--            app:argType="string"-->
+<!--            android:defaultValue="en" />-->
+    </fragment>
+
+
     <fragment
         android:id="@+id/aboutAppFragment"
         android:name="com.example.quranapplication.ActionBar.AboutAppFragment"
