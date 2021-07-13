@@ -7,5 +7,5 @@ import retrofit2.http.Query;
 public interface SearchInterface {
 
     @GET("search")
-    Call<Search> getResultOfSearch(@Query("q") String q, @Query("language") String language);
+    Call<Search> getResultOfSearch(@Query("q") String q, @Query("language") String language, @Query("page") int page);
 }

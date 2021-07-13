@@ -103,13 +103,11 @@
         android:name="com.example.quranapplication.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
-<!--        <argument-->
-<!--            android:name="languageid"-->
-<!--            app:argType="string"-->
-<!--            android:defaultValue="en" />-->
+        <argument
+            android:name="languageid"
+            app:argType="string"
+            android:defaultValue="en" />
     </fragment>
-
-
     <fragment
         android:id="@+id/aboutAppFragment"
         android:name="com.example.quranapplication.ActionBar.AboutAppFragment"
@@ -140,6 +138,7 @@
 <!--            android:id="@+id/action_splash2_to_languageFragment"-->
 <!--            app:destination="@id/languageFragment" />-->
 <!--    </fragment>-->
+
     <fragment
         android:id="@+id/languageFragment"
         android:name="com.example.quranapplication.LanguageFragment"
@@ -150,8 +149,8 @@
             app:destination="@id/indexsFragment" />
 
         <!--        <action-->
-<!--            android:id="@+id/action_languageFragment_to_indexsFragment2"-->
-<!--            app:destination="@id/indexsFragment" />-->
+        <!--            android:id="@+id/action_languageFragment_to_indexsFragment2"-->
+        <!--            app:destination="@id/indexsFragment" />-->
     </fragment>
 
 
